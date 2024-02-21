@@ -1,15 +1,13 @@
-import { useEffect } from "react";
-import { useFetchQuizzes } from "../hooks/quizzes";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
-  const { data } = useFetchQuizzes();
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const navigate = useNavigate();
 
   return (
     <div>
-      <button>퀴즈 풀기</button>
+      <button type="button" onClick={() => navigate("/quiz")}>
+        퀴즈 풀기
+      </button>
     </div>
   );
 };
