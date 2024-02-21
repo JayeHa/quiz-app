@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Route } from "react-router-dom";
 import { withRouter } from "../tests/utils";
-import { Home } from "./Home";
+import { Home } from "./Home.page";
 
 describe("Home", () => {
   it("'퀴즈 풀기' 버튼이 렌더링된다.", () => {
