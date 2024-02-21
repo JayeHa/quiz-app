@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getQuizzes } from "../apis/quiz";
 import { QuizPayload } from "../model/quiz";
 
@@ -10,7 +10,7 @@ const quizKeys = {
 export const useFetchQuizzes = (
   payload: QuizPayload = { amount: 10, type: "multiple" }
 ) =>
-  useQuery({
+  useSuspenseQuery({
     queryKey: quizKeys.lists(payload),
     queryFn: () => getQuizzes(payload),
     select: (data) => data.results,
