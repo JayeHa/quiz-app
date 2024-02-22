@@ -33,8 +33,24 @@ describe("QuizCard", () => {
       ).toBeInTheDocument();
     });
 
-    // it("답안이 맞았는지 바로 알 수 있다.", () => {});
-    // it("답안이 틀렸는지 바로 알 수 있다.", () => {});
+    it("답안이 맞았는지 바로 알 수 있다.", () => {
+      render(<QuizCard quiz={FAKE_QUIZ} />);
+      const correctAnswerButton = screen.getByRole("button", {
+        name: FAKE_QUIZ.correct_answer,
+      });
+      userEvent.click(correctAnswerButton);
+
+      expect(screen.getByText(/맞았습니다/)).toBeInTheDocument();
+    });
+    it("답안이 틀렸는지 바로 알 수 있다.", () => {
+      render(<QuizCard quiz={FAKE_QUIZ} />);
+      const incorrectAnswerButton = screen.getByRole("button", {
+        name: FAKE_QUIZ.incorrect_answers[0],
+      });
+      userEvent.click(incorrectAnswerButton);
+
+      expect(screen.getByText(/틀렸습니다/)).toBeInTheDocument();
+    });
     // it("다음 문항 버튼을 클릭하여 다음 문항으로 이동할 수 있다.", () => {});
   });
 });

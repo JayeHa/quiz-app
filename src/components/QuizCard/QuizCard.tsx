@@ -8,7 +8,7 @@ interface Props {
 
 export const QuizCard = ({ quiz }: Props) => {
   const { question, correct_answer, incorrect_answers } = quiz;
-  const [isAnswered, setIsAnswered] = useState(false);
+  const [userAnswer, setUserAnswer] = useState<string>();
   const [randomAnswers] = useState(() =>
     shuffleArray([...incorrect_answers, correct_answer])
   );
@@ -22,13 +22,24 @@ export const QuizCard = ({ quiz }: Props) => {
           <button
             type="button"
             key={answer}
-            onClick={() => setIsAnswered(true)}
+            onClick={() => setUserAnswer(answer)}
+            disabled={!!userAnswer}
+            // TODO: 임시
+            // style={{ background: answer === correct_answer ? "red" : "" }}
           >
             {answer}
           </button>
         ))}
       </div>
-      {isAnswered && <button type="button">다음 문항</button>}
+      {userAnswer && (
+        <div>
+          <span>
+            {userAnswer === correct_answer && "맞았습니다"}
+            {userAnswer !== correct_answer && "틀렸습니다"}
+          </span>
+          <button type="button">다음 문항</button>
+        </div>
+      )}
     </article>
   );
 };
