@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Quiz } from "../../model/quiz";
 import { EMPTY_QUIZ } from "../../tests/fakeQuizzes";
+import { Button } from "../Button";
 import { Loading } from "../Loading";
 import { useRandomAnswers } from "./QuizCard.hooks";
 
@@ -22,14 +23,13 @@ export const QuizCard = ({ quiz, handleNextButton }: Props) => {
 
       <div>
         {randomAnswers.map((answer) => (
-          <button
-            type="button"
+          <Button
             key={answer}
             onClick={() => setUserAnswer(answer)}
             disabled={!!userAnswer}
           >
             {answer}
-          </button>
+          </Button>
         ))}
       </div>
 
@@ -39,15 +39,14 @@ export const QuizCard = ({ quiz, handleNextButton }: Props) => {
             {userAnswer === correct_answer && "맞았습니다"}
             {userAnswer !== correct_answer && "틀렸습니다"}
           </span>
-          <button
-            type="button"
+          <Button
             onClick={() => {
               handleNextButton(userAnswer);
               setUserAnswer(undefined);
             }}
           >
             다음 문항
-          </button>
+          </Button>
         </div>
       )}
     </article>

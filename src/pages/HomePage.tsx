@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { Button } from "../components/Button";
 
 export const HomePage = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      <button type="button" onClick={() => navigate("/quiz")}>
-        퀴즈 풀기
-      </button>
+      <Button onClick={() => navigate("/quiz")}>퀴즈 풀기</Button>
     </div>
   );
 };
