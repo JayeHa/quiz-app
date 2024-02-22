@@ -63,7 +63,20 @@ describe("QuizCard", () => {
 
       expect(screen.getByText(/틀렸습니다/)).toBeInTheDocument();
     });
-    it("다음 문항 버튼을 클릭하여 handleNextButton이 호출된다.", () => {
+
+    it("답안을 선택하면 답안 버튼이 비활성화된다", async () => {
+      render(
+        <QuizCard quiz={FAKE_QUIZ} handleNextButton={handleNextButtonMock} />
+      );
+      const answerButton = screen.getByRole("button", {
+        name: FAKE_QUIZ.correct_answer,
+      });
+      userEvent.click(answerButton);
+
+      expect(answerButton).toBeDisabled();
+    });
+
+    it("'다음 문항' 버튼을 클릭하면 userAnswer 상태가 초기화되고 답안 버튼이 활성화된다", async () => {
       render(
         <QuizCard quiz={FAKE_QUIZ} handleNextButton={handleNextButtonMock} />
       );
@@ -72,15 +85,15 @@ describe("QuizCard", () => {
         name: FAKE_QUIZ.correct_answer,
       });
       userEvent.click(answerButton);
-
-      const nextButton = screen.getByRole("button", {
-        name: /다음 문항/,
-      });
+      const nextButton = screen.getByRole("button", { name: "다음 문항" });
       userEvent.click(nextButton);
 
+      // handleNextButtonMock 함수가 호출되었는지 확인
       expect(handleNextButtonMock).toHaveBeenCalledWith(
         FAKE_QUIZ.correct_answer
       );
+      // userAnswer 상태가 초기화되었는지 확인하기 위해 다시 정답 버튼을 클릭 가능한지 확인
+      expect(answerButton).not.toBeDisabled();
     });
   });
 });

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Quiz } from "../../model/quiz";
 import { shuffleArray } from "../../utils/shuffleArray";
 
@@ -10,9 +10,13 @@ interface Props {
 export const QuizCard = ({ quiz, handleNextButton }: Props) => {
   const { question, correct_answer, incorrect_answers } = quiz;
   const [userAnswer, setUserAnswer] = useState<string>();
-  const [randomAnswers] = useState(() =>
+  const [randomAnswers, setRandomAnswers] = useState(() =>
     shuffleArray([...incorrect_answers, correct_answer])
   );
+
+  useEffect(() => {
+    setRandomAnswers([...incorrect_answers, correct_answer]);
+  }, [correct_answer, incorrect_answers]);
 
   return (
     <article>
