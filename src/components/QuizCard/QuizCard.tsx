@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Quiz } from "../../model/quiz";
+import { useQuizStore } from "../../store/quizStore";
 import { EMPTY_QUIZ } from "../../tests/fakeQuizzes";
 import { Button } from "../Button";
 import { Loading } from "../Loading";
@@ -18,6 +19,7 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
   const navigate = useNavigate();
   const randomAnswers = useRandomAnswers(correct_answer, incorrect_answers);
   const [userAnswer, setUserAnswer] = useState<string | null>(null);
+  const { setEndDate } = useQuizStore();
 
   if (!quiz) return <Loading />;
 
@@ -48,6 +50,7 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
               setUserAnswer(null);
               if (isLastQuiz) {
                 navigate("/result");
+                setEndDate();
               }
             }}
           >
