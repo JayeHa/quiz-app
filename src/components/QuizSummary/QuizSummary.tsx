@@ -1,9 +1,4 @@
-import {
-  getDateDistance,
-  getDateDistanceText,
-  isValidDate,
-} from "../../utils/date";
-import { calculateCorrectAnswers } from "./utils";
+import { calculateCorrectAnswers, calculateTimeDistance } from "./utils";
 
 type Props = {
   correctAnswerList: string[];
@@ -19,11 +14,7 @@ export const QuizSummary = ({
   endDate,
 }: Props) => {
   const dateDistanceText =
-    startDate && endDate && isValidDate(startDate) && isValidDate(endDate)
-      ? getDateDistanceText(
-          getDateDistance(new Date(startDate), new Date(endDate))
-        )
-      : "-";
+    startDate && endDate ? calculateTimeDistance(startDate, endDate) : "-";
 
   const numberOfCorrectAnswers = calculateCorrectAnswers(
     correctAnswerList,

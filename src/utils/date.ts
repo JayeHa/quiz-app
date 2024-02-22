@@ -1,12 +1,16 @@
 import { format as _format } from "date-fns";
 import { ko } from "date-fns/locale";
 
+const ISO_DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+
+export function isValidDate(dateString: string) {
+  const date = new Date(dateString);
+  return date instanceof Date && !isNaN(date.getTime());
+}
+
 /**
  * @see https://github.com/toss/slash/blob/main/packages/common/date/src/date.ts
  */
-
-const ISO_DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
-
 export type DateFnsDateType = number | Date;
 
 export const kstFormat = (

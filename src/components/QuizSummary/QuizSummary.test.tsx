@@ -36,10 +36,10 @@ describe("QuizSummary", () => {
       render(<QuizSummary {...propsWithNullEnd} />);
       expect(screen.getByText("소요된 시간: -")).toBeInTheDocument();
     });
-    it("유효한 날짜정보가 아니라면 '-'를 표시한다.", () => {
+    it("유효한 날짜정보가 아니라면 '유효하지 않은 날짜' 메시지를 표시한다.", () => {
       const propsWithInvalidEnd = { ...FAKE_PROPS, endDate: "invalid" };
       render(<QuizSummary {...propsWithInvalidEnd} />);
-      expect(screen.getByText("소요된 시간: -")).toBeInTheDocument();
+      expect(screen.getByText(/유효하지 않은 날짜/)).toBeInTheDocument();
     });
   });
 });
