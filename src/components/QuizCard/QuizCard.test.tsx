@@ -95,5 +95,13 @@ describe("QuizCard", () => {
       // userAnswer 상태가 초기화되었는지 확인하기 위해 다시 정답 버튼을 클릭 가능한지 확인
       expect(answerButton).not.toBeDisabled();
     });
+
+    it("quiz의 값이 없을 때도 오류 없이 렌더링한다", () => {
+      const { container } = render(
+        <QuizCard quiz={null} handleNextButton={handleNextButtonMock} />
+      );
+
+      expect(container).toBeDefined();
+    });
   });
 });

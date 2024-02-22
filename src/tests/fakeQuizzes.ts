@@ -1,5 +1,11 @@
 import { Quiz } from "../model/quiz";
 
+export const EMPTY_QUIZ = {
+  question: "",
+  correct_answer: "",
+  incorrect_answers: [],
+};
+
 export const fakeQuizzes: Quiz[] = [
   {
     type: "multiple",
