@@ -1,12 +1,9 @@
-export type QuizType = "multiple" | "boolean";
-
 export type QuizPayload = {
   amount: number;
-  type: QuizType;
 };
 
 export type Quiz = {
-  type: QuizType;
+  type: "multiple";
   difficulty: "easy" | "medium" | "hard";
   category: string;
   question: string;

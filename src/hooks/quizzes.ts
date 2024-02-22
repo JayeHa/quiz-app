@@ -7,9 +7,7 @@ const quizKeys = {
   lists: (payload: QuizPayload) => [...quizKeys.all, "list", payload] as const,
 };
 
-export const useFetchQuizzes = (
-  payload: QuizPayload = { amount: 10, type: "multiple" }
-) =>
+export const useFetchQuizzes = (payload: QuizPayload = { amount: 5 }) =>
   useSuspenseQuery({
     queryKey: quizKeys.lists(payload),
     queryFn: () => getQuizzes(payload),
