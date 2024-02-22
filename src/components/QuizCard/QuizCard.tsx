@@ -14,9 +14,10 @@ interface Props {
 
 export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
   const { question, correct_answer, incorrect_answers } = quiz ?? EMPTY_QUIZ;
-  const randomAnswers = useRandomAnswers(correct_answer, incorrect_answers);
-  const [userAnswer, setUserAnswer] = useState<string>();
+
   const navigate = useNavigate();
+  const randomAnswers = useRandomAnswers(correct_answer, incorrect_answers);
+  const [userAnswer, setUserAnswer] = useState<string | null>(null);
 
   if (!quiz) return <Loading />;
 
@@ -39,30 +40,19 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
       {userAnswer && (
         <div>
           <span>
-            {userAnswer === correct_answer && "맞았습니다"}
-            {userAnswer !== correct_answer && "틀렸습니다"}
+            {userAnswer === correct_answer ? "맞았습니다" : "틀렸습니다"}
           </span>
-          {!isLastQuiz && (
-            <Button
-              onClick={() => {
-                handleNextButton(userAnswer);
-                setUserAnswer(undefined);
-              }}
-            >
-              다음 문항
-            </Button>
-          )}
-          {isLastQuiz && (
-            <Button
-              onClick={() => {
-                handleNextButton(userAnswer);
-                setUserAnswer(undefined);
+          <Button
+            onClick={() => {
+              handleNextButton(userAnswer);
+              setUserAnswer(null);
+              if (isLastQuiz) {
                 navigate("/result");
-              }}
-            >
-              결과 보기
-            </Button>
-          )}
+              }
+            }}
+          >
+            {isLastQuiz ? "결과 보기" : "다음 문항"}
+          </Button>
         </div>
       )}
     </article>
