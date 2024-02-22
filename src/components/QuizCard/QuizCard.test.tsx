@@ -32,13 +32,9 @@ describe("QuizCard", () => {
 
   it("사용자는 문항에 대한 답안을 4개 보기 중에 선택할 수 있다.", () => {
     renderQuizCard();
-    [FAKE_QUIZ.correct_answer, ...FAKE_QUIZ.incorrect_answers].forEach(
-      (answer) => {
-        expect(
-          screen.getByRole("button", { name: answer })
-        ).toBeInTheDocument();
-      }
-    );
+    FAKE_QUIZ.shuffledAnswers.forEach((answer) => {
+      expect(screen.getByRole("button", { name: answer })).toBeInTheDocument();
+    });
   });
 
   it("quiz의 값이 없을 때도 오류 없이 렌더링한다", () => {
