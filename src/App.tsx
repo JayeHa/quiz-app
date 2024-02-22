@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { Header } from "./components/Header";
 import { Loading } from "./components/Loading";
 
 const queryClient = new QueryClient({
@@ -15,8 +16,11 @@ const queryClient = new QueryClient({
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <Header />
       <Suspense fallback={<Loading />}>
-        <Outlet />
+        <main className="p-4">
+          <Outlet />
+        </main>
       </Suspense>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
