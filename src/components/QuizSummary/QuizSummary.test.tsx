@@ -8,6 +8,10 @@ const FAKE_PROPS = {
   endDate: "2024-02-22T13:28:59.006Z",
 };
 
+jest.mock("../QuizResultChart/QuizResultChart", () => ({
+  QuizResultChart: () => <div>Mocked Chart</div>,
+}));
+
 describe("QuizSummary", () => {
   describe("모든 문항을 다 풀면 사용자는 다음과 같은 결과 정보를 볼 수 있다.", () => {
     it("정답 개수", () => {
@@ -40,6 +44,11 @@ describe("QuizSummary", () => {
       const propsWithInvalidEnd = { ...FAKE_PROPS, endDate: "invalid" };
       render(<QuizSummary {...propsWithInvalidEnd} />);
       expect(screen.getByText(/유효하지 않은 날짜/)).toBeInTheDocument();
+    });
+
+    it("정 오답에 대한 비율을 차트로 표기", () => {
+      render(<QuizSummary {...FAKE_PROPS} />);
+      expect(screen.getByText(/Mocked Chart/)).toBeInTheDocument();
     });
   });
 });

@@ -12,16 +12,6 @@ export const ResultPage = () => {
         startDate={startDate}
         endDate={endDate}
       />
-      <div>
-        ---
-        {userAnswerList.map((answer) => (
-          <span key={answer}>{answer}, </span>
-        ))}
-        ---
-        {quizList.map(({ correct_answer }) => (
-          <span key={correct_answer}>{correct_answer}, </span>
-        ))}
-      </div>
     </div>
   );
 };

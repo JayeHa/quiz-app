@@ -1,3 +1,4 @@
+import { QuizResultChart } from "../QuizResultChart/QuizResultChart";
 import { calculateCorrectAnswers, calculateTimeDistance } from "./utils";
 
 type Props = {
@@ -25,9 +26,16 @@ export const QuizSummary = ({
 
   return (
     <article>
-      <span>소요된 시간: {dateDistanceText}</span>
-      <span>정답 개수: {numberOfCorrectAnswers}</span>
-      <span>오답 수: {numberOfIncorrectAnswers}</span>
+      <div>
+        <span>소요된 시간: {dateDistanceText}</span>
+        <span>정답 개수: {numberOfCorrectAnswers}</span>
+        <span>오답 수: {numberOfIncorrectAnswers}</span>
+      </div>
+
+      <QuizResultChart
+        numberOfCorrectAnswers={numberOfCorrectAnswers}
+        numberOfIncorrectAnswers={numberOfIncorrectAnswers}
+      />
     </article>
   );
 };
