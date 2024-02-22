@@ -8,14 +8,30 @@ export const ResultPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <>
       <QuizSummary
         correctAnswerList={quizList.map(({ correct_answer }) => correct_answer)}
         userAnswerList={userAnswerList}
         startDate={startDate}
         endDate={endDate}
       />
-      <Button onClick={() => navigate("/review")}>오답노트 보러가기</Button>
-    </div>
+
+      <div className="mt-2 flex gap-2 md:mt-10">
+        <Button
+          className="w-1/2"
+          variant="default"
+          onClick={() => navigate("/review")}
+        >
+          홈으로
+        </Button>
+        <Button
+          className="w-full"
+          variant="outlined"
+          onClick={() => navigate("/review")}
+        >
+          오답노트 보러가기
+        </Button>
+      </div>
+    </>
   );
 };

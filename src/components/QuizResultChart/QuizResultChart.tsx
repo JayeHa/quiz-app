@@ -20,7 +20,7 @@ export const QuizResultChart = ({
   ...props
 }: Props) => {
   return (
-    <div style={{ maxWidth: 500 }} {...props}>
+    <div className="relative m-auto h-[400px] w-[90vw] max-w-96" {...props}>
       <Doughnut
         data={{
           labels: ["정답", "오답"],
