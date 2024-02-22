@@ -8,7 +8,7 @@ import { Loading } from "./components/Loading";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60, // 1분
+      staleTime: 1000 * 60 * 10, // 10분
     },
   },
 });
@@ -18,8 +18,10 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <Header />
       <Suspense fallback={<Loading />}>
-        <main className="p-4">
-          <Outlet />
+        <main className="flex flex-col items-center p-4">
+          <div className="w-full max-w-[1000px]">
+            <Outlet />
+          </div>
         </main>
       </Suspense>
       <ReactQueryDevtools initialIsOpen={false} />
