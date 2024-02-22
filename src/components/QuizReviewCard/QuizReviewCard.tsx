@@ -1,16 +1,15 @@
-import { Quiz } from "../../model/quiz";
-import { EMPTY_QUIZ } from "../../tests/fakeQuizzes";
+import { ShuffledQuiz } from "../../model/quiz";
+import { EMPTY_SHUFFLED_QUIZ } from "../../tests/fakeQuizzes";
 import { Button } from "../Button";
-import { useRandomAnswers } from "../QuizCard/QuizCard.hooks";
 
 interface Props {
-  quiz: Quiz;
+  quiz: ShuffledQuiz;
   userAnswer: string;
 }
 
 export const QuizReviewCard = ({ quiz, userAnswer }: Props) => {
-  const { question, correct_answer, incorrect_answers } = quiz ?? EMPTY_QUIZ;
-  const randomAnswers = useRandomAnswers(correct_answer, incorrect_answers);
+  const { question, correct_answer, shuffledAnswers } =
+    quiz ?? EMPTY_SHUFFLED_QUIZ;
 
   const getButtonColor = (
     answer: string,
@@ -27,7 +26,7 @@ export const QuizReviewCard = ({ quiz, userAnswer }: Props) => {
       <h2>{question}</h2>
 
       <div>
-        {randomAnswers.map((answer) => (
+        {shuffledAnswers.map((answer) => (
           <Button
             key={answer}
             disabled

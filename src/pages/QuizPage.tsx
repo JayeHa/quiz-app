@@ -3,8 +3,8 @@ import { useQuizListQuery } from "../service/useQuizService";
 import { useQuizStore } from "../store/quizStore";
 
 export const QuizPage = () => {
-  const { data: quizList } = useQuizListQuery();
-  const { userAnswerList, setUserAnswer } = useQuizStore();
+  useQuizListQuery();
+  const { userAnswerList, setUserAnswer, quizList } = useQuizStore();
   const currentQuiz = quizList[userAnswerList.length];
 
   return (

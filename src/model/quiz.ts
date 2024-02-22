@@ -11,6 +11,10 @@ export type Quiz = {
   incorrect_answers: string[];
 };
 
+export type ShuffledQuiz = Quiz & {
+  shuffledAnswers: string[];
+};
+
 export type QuizResponse = {
   response_code: number;
   results: Quiz[];

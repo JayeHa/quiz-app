@@ -1,14 +1,14 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { Quiz } from "../model/quiz";
+import { ShuffledQuiz } from "../model/quiz";
 import { kstFormat } from "../utils/date";
 
 interface QuizState {
-  quizList: Quiz[];
+  quizList: ShuffledQuiz[];
   startDate: string | null;
   endDate: string | null;
   userAnswerList: string[];
-  setQuizList: (quizList: Quiz[], startDate?: Date) => void;
+  setQuizList: (quizList: ShuffledQuiz[], startDate?: Date) => void;
   setUserAnswer: (answer: string) => void;
   setEndDate: (endDate?: Date) => void;
 }

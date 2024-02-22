@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Quiz } from "../../model/quiz";
+import { ShuffledQuiz } from "../../model/quiz";
 import { useQuizStore } from "../../store/quizStore";
-import { EMPTY_QUIZ } from "../../tests/fakeQuizzes";
+import { EMPTY_SHUFFLED_QUIZ } from "../../tests/fakeQuizzes";
 import { Button } from "../Button";
 import { Loading } from "../Loading";
-import { useRandomAnswers } from "./QuizCard.hooks";
 
 interface Props {
-  quiz: Quiz | null;
+  quiz: ShuffledQuiz | null;
   handleNextButton: (userAnswer: string) => void;
   isLastQuiz?: boolean;
 }
 
 export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
-  const { question, correct_answer, incorrect_answers } = quiz ?? EMPTY_QUIZ;
+  const { question, correct_answer, shuffledAnswers } =
+    quiz ?? EMPTY_SHUFFLED_QUIZ;
 
   const navigate = useNavigate();
-  const randomAnswers = useRandomAnswers(correct_answer, incorrect_answers);
   const [userAnswer, setUserAnswer] = useState<string | null>(null);
   const { setEndDate } = useQuizStore();
 
@@ -28,7 +27,7 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
       <h2>{question}</h2>
 
       <div>
-        {randomAnswers.map((answer) => (
+        {shuffledAnswers.map((answer) => (
           <Button
             key={answer}
             onClick={() => setUserAnswer(answer)}
