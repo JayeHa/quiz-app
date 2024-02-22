@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { Quiz } from "../model/quiz";
+import { kstFormat } from "../utils/date";
 
 interface QuizState {
   quizList: Quiz[];
@@ -19,7 +20,7 @@ export const useQuizStore = create(
       setQuizList: (quizList, startDate = new Date()) =>
         set({
           quizList,
-          startDate: startDate.toISOString(),
+          startDate: kstFormat(startDate),
           userAnswerList: [],
         }),
       setUserAnswer: (answer) =>
