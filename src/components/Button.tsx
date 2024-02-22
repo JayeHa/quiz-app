@@ -3,9 +3,10 @@ import { ButtonHTMLAttributes } from "react";
 export type ButtonVariant = "default" | "filled" | "outlined";
 
 const BUTTON_VARIANTS: Record<ButtonVariant, string> = {
-  default: "border-neutral-500 bg-white text-primary hover:bg-neutral-100",
-  filled: "border-transparent bg-red text-white hover:bg-red-dark",
-  outlined: "border-red bg-white text-red hover:bg-red-weak",
+  default:
+    "border-neutral-500 bg-white text-primary enabled:hover:bg-neutral-100",
+  filled: "border-transparent bg-red text-white enabled:hover:bg-red-dark",
+  outlined: "border-red bg-white text-red enabled:hover:bg-red-weak",
 };
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -21,7 +22,7 @@ export const Button = ({
 }: Props) => {
   return (
     <button
-      className={`rounded-lg border px-6 py-2 text-lg font-semibold shadow transition-colors ${BUTTON_VARIANTS[variant]} ${className}`}
+      className={`rounded-lg border px-6 py-2 text-lg font-semibold shadow transition disabled:cursor-not-allowed disabled:opacity-70 ${BUTTON_VARIANTS[variant]} ${className} `}
       type={type}
       {...props}
     >

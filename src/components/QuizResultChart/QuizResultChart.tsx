@@ -28,6 +28,7 @@ export const QuizResultChart = ({
             {
               label: "개수",
               data: [numberOfCorrectAnswers, numberOfIncorrectAnswers],
+              backgroundColor: ["#115e59", "#b91c1c"],
             },
           ],
         }}

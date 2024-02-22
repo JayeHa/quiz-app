@@ -18,7 +18,7 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <Header />
       <Suspense fallback={<Loading />}>
-        <main className="flex flex-col items-center p-4">
+        <main className="flex flex-col items-center px-5 py-10">
           <div className="w-full max-w-[1000px]">
             <Outlet />
           </div>
