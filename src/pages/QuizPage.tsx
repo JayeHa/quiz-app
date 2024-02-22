@@ -1,19 +1,19 @@
-import { useState } from "react";
 import { QuizCard } from "../components/QuizCard/QuizCard";
 import { useQuizListQuery } from "../service/useQuizService";
+import { useQuizStore } from "../store/quizStore";
 
 export const QuizPage = () => {
   const { data: quizList } = useQuizListQuery();
-  const [userAnswers, setUserAnswers] = useState<string[]>([]);
-  const currentQuiz = quizList[userAnswers.length];
+  const { userAnswerList, setUserAnswer } = useQuizStore();
+  const currentQuiz = quizList[userAnswerList.length];
 
   return (
     <div>
       <QuizCard
         quiz={currentQuiz}
-        isLastQuiz={userAnswers.length >= quizList.length - 1}
+        isLastQuiz={userAnswerList.length >= quizList.length - 1}
         handleNextButton={(answer) => {
-          setUserAnswers((prev) => [...prev, answer]);
+          setUserAnswer(answer);
         }}
       />
     </div>
