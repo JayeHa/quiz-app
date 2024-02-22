@@ -4,9 +4,10 @@ import { shuffleArray } from "../../utils/shuffleArray";
 
 interface Props {
   quiz: Quiz;
+  handleNextButton: (userAnswer: string) => void;
 }
 
-export const QuizCard = ({ quiz }: Props) => {
+export const QuizCard = ({ quiz, handleNextButton }: Props) => {
   const { question, correct_answer, incorrect_answers } = quiz;
   const [userAnswer, setUserAnswer] = useState<string>();
   const [randomAnswers] = useState(() =>
@@ -31,13 +32,22 @@ export const QuizCard = ({ quiz }: Props) => {
           </button>
         ))}
       </div>
+
       {userAnswer && (
         <div>
           <span>
             {userAnswer === correct_answer && "맞았습니다"}
             {userAnswer !== correct_answer && "틀렸습니다"}
           </span>
-          <button type="button">다음 문항</button>
+          <button
+            type="button"
+            onClick={() => {
+              handleNextButton(userAnswer);
+              setUserAnswer(undefined);
+            }}
+          >
+            다음 문항
+          </button>
         </div>
       )}
     </article>
