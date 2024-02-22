@@ -9,6 +9,8 @@ module.exports = {
       ...colors,
       red: "#b91c1c",
       "red-dark": "#991b1b",
+      "red-weak": "#fef2f2",
+      primary: "#262626",
     },
   },
   plugins: [],
