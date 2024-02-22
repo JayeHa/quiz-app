@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Quiz } from "../../model/quiz";
-import { shuffleArray } from "../../utils/shuffleArray";
+import { useRandomAnswers } from "./QuizCard.hooks";
 
 interface Props {
   quiz: Quiz;
@@ -9,14 +9,8 @@ interface Props {
 
 export const QuizCard = ({ quiz, handleNextButton }: Props) => {
   const { question, correct_answer, incorrect_answers } = quiz;
+  const randomAnswers = useRandomAnswers(correct_answer, incorrect_answers);
   const [userAnswer, setUserAnswer] = useState<string>();
-  const [randomAnswers, setRandomAnswers] = useState(() =>
-    shuffleArray([...incorrect_answers, correct_answer])
-  );
-
-  useEffect(() => {
-    setRandomAnswers([...incorrect_answers, correct_answer]);
-  }, [correct_answer, incorrect_answers]);
 
   return (
     <article>
@@ -29,8 +23,6 @@ export const QuizCard = ({ quiz, handleNextButton }: Props) => {
             key={answer}
             onClick={() => setUserAnswer(answer)}
             disabled={!!userAnswer}
-            // TODO: 임시
-            // style={{ background: answer === correct_answer ? "red" : "" }}
           >
             {answer}
           </button>
