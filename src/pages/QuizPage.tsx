@@ -11,6 +11,7 @@ export const QuizPage = () => {
     <div>
       <QuizCard
         quiz={currentQuiz}
+        isLastQuiz={userAnswers.length >= quizzes.length - 1}
         handleNextButton={(answer) => {
           setUserAnswers((prev) => [...prev, answer]);
         }}
