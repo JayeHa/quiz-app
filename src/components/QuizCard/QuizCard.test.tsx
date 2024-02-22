@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { fakeQuizzes } from "../../tests/fakeQuizzes";
 import { QuizCard } from "./QuizCard";
 
@@ -14,9 +15,26 @@ describe("QuizCard", () => {
     });
   });
 
-  // describe("사용자는 답안을 선택하면 다음 문항을 볼 수 있다.", () => {
-  //   it("답안 선택 후 다음 문항 버튼을 볼 수 있다.", () => {});
-  //   it("답안이 맞았는지 틀렸는지 바로 알 수 있다.", () => {});
-  //   it("다음 문항 버튼을 클릭하여 다음 문항으로 이동할 수 있다.", () => {});
-  // });
+  describe("사용자는 답안을 선택하면 다음 문항을 볼 수 있다.", () => {
+    it("답안 선택 후 '다음 문항' 버튼을 볼 수 있다.", () => {
+      render(<QuizCard quiz={FAKE_QUIZ} />);
+
+      expect(
+        screen.queryByRole("button", { name: /다음 문항/ })
+      ).not.toBeInTheDocument();
+
+      const answerButton = screen.getByRole("button", {
+        name: FAKE_QUIZ.correct_answer,
+      });
+      userEvent.click(answerButton);
+
+      expect(
+        screen.getByRole("button", { name: /다음 문항/ })
+      ).toBeInTheDocument();
+    });
+
+    // it("답안이 맞았는지 바로 알 수 있다.", () => {});
+    // it("답안이 틀렸는지 바로 알 수 있다.", () => {});
+    // it("다음 문항 버튼을 클릭하여 다음 문항으로 이동할 수 있다.", () => {});
+  });
 });
