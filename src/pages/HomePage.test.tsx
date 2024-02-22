@@ -3,11 +3,11 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Route } from "react-router-dom";
 import { withRouter } from "../tests/utils";
-import { Home } from "./Home.page";
+import { HomePage } from "./HomePage";
 
 describe("Home", () => {
   it("'퀴즈 풀기' 버튼이 렌더링된다.", () => {
-    render(withRouter(<Route path="/" element={<Home />} />));
+    render(withRouter(<Route path="/" element={<HomePage />} />));
     const startButton = screen.getByRole("button", { name: /퀴즈 풀기/ });
 
     expect(startButton).toBeInTheDocument();
@@ -18,7 +18,7 @@ describe("Home", () => {
     render(
       withRouter(
         <>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/quiz" element={<div>{QUIZ_PAGE_TEXT}</div>} />
         </>
       )
