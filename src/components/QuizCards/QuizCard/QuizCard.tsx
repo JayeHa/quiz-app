@@ -7,6 +7,7 @@ import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { QuestionBox } from "../QuestionBox";
+import { QuizProgress } from "./QuizProgress";
 import { ResultText } from "./ResultText";
 
 interface Props {
@@ -29,8 +30,9 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
 
   return (
     <article className="flex flex-col gap-8">
+      <QuizProgress />
       <QuestionBox
-        index={current + 1}
+        index={current}
         question={question}
         category={category}
         difficulty={difficulty}

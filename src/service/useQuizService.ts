@@ -5,7 +5,7 @@ import { shuffleArray } from "@utils/shuffleArray";
 import { useEffect } from "react";
 import { queryOptions } from "./queries";
 
-export const useQuizListQuery = (payload: QuizPayload = { amount: 3 }) => {
+export const useQuizListQuery = (payload: QuizPayload = { amount: 5 }) => {
   const response = useSuspenseQuery<QuizResponse, Error, Quiz[]>(
     queryOptions.quizList(payload),
   );
