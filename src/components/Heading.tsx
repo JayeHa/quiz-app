@@ -25,7 +25,10 @@ export const Heading = ({
   const Tag = `h${level}` as keyof Pick<JSX.IntrinsicElements, HeadingTag>;
 
   return (
-    <Tag className={`${HEADING_STYLES[size]} ${className}`} {...props}>
+    <Tag
+      className={`break-keep ${HEADING_STYLES[size]} ${className}`}
+      {...props}
+    >
       {children}
     </Tag>
   );
