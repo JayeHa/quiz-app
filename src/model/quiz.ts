@@ -1,3 +1,5 @@
+export const DEFAULT_AMOUNT = 5;
+
 export type QuizPayload = {
   amount: number;
 };

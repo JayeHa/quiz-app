@@ -1,11 +1,13 @@
-import { Quiz, QuizPayload, QuizResponse } from "@model/quiz";
+import { DEFAULT_AMOUNT, Quiz, QuizPayload, QuizResponse } from "@model/quiz";
 import { useQuizStore } from "@store/quizStore";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { shuffleArray } from "@utils/shuffleArray";
 import { useEffect } from "react";
 import { queryOptions } from "./queries";
 
-export const useQuizListQuery = (payload: QuizPayload = { amount: 5 }) => {
+export const useQuizListQuery = (
+  payload: QuizPayload = { amount: DEFAULT_AMOUNT },
+) => {
   const { data: quizList } = useSuspenseQuery<QuizResponse, Error, Quiz[]>(
     queryOptions.quizList(payload),
   );
