@@ -16,7 +16,7 @@ const BUTTON_STYLES: Record<ButtonVariant, Record<ButtonColor, string>> = {
   },
 };
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
   color?: ButtonColor;
 };
@@ -28,7 +28,7 @@ export const Button = ({
   color = "red",
   className,
   ...props
-}: Props) => {
+}: ButtonProps) => {
   return (
     <button
       className={`rounded-lg border px-6 py-3 text-lg font-semibold shadow transition disabled:cursor-not-allowed disabled:opacity-70 ${BUTTON_STYLES[variant][color]} ${className} `}

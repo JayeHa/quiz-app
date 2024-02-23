@@ -1,11 +1,8 @@
-import { Button } from "@components/Button";
+import { LinkButton } from "@components/Buttons";
 import { Heading } from "@components/Heading";
 import { DEFAULT_AMOUNT } from "@model/quiz";
-import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="flex flex-col items-center gap-16">
       <div>
@@ -20,9 +17,9 @@ export const HomePage = () => {
         </p>
       </div>
 
-      <Button onClick={() => navigate("/quiz")} className="w-full md:w-[500px]">
+      <LinkButton to="/quiz" className="w-full md:w-[500px]">
         퀴즈 풀기
-      </Button>
+      </LinkButton>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Button } from "@components/Button";
+import { Button } from "@components/Buttons";
 import { Loading } from "@components/Loading";
 import { Text } from "@components/Text";
 import { ShuffledQuiz } from "@model/quiz";

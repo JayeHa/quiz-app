@@ -1,5 +1,4 @@
-import { useNavigate } from "react-router-dom";
-import { Button } from "./Button";
+import { LinkButton } from "./Buttons";
 import { Heading } from "./Heading";
 
 type Props = { title?: string; className?: string };
@@ -8,8 +7,6 @@ export const EmptyView = ({
   className,
   title = "페이지가 존재하지 않습니다.",
 }: Props) => {
-  const navigate = useNavigate();
-
   return (
     <div
       className={
@@ -26,7 +23,7 @@ export const EmptyView = ({
         </div>
 
         <div className="mb-24">
-          <Button onClick={() => navigate("/")}>홈으로 가기</Button>
+          <LinkButton to="/">홈으로 가기</LinkButton>
         </div>
       </div>
     </div>

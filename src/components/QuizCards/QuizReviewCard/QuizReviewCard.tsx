@@ -1,4 +1,4 @@
-import { Button, ButtonColor } from "@components/Button";
+import { Button, ButtonColor } from "@components/Buttons";
 import { Text } from "@components/Text";
 import { ShuffledQuiz } from "@model/quiz";
 import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
@@ -52,7 +52,7 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
         ))}
       </div>
 
-      <div className="text-gray flex flex-col gap-1 text-2xl ">
+      <div className="flex flex-col gap-1 text-2xl text-gray ">
         <span>
           선택한 답: <Text className="font-bold">{userAnswer}</Text>
         </span>
