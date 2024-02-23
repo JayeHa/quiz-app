@@ -1,6 +1,6 @@
-import { QuizCard } from "../components/QuizCards";
-import { useQuizListQuery } from "../service/useQuizService";
-import { useQuizStore } from "../store/quizStore";
+import { QuizCard } from "@components/QuizCards";
+import { useQuizListQuery } from "@service/useQuizService";
+import { useQuizStore } from "@store/quizStore";
 
 export const QuizPage = () => {
   useQuizListQuery();

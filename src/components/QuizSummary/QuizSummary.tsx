@@ -1,5 +1,5 @@
-import { Heading } from "../Heading";
-import { QuizResultChart } from "../QuizResultChart/QuizResultChart";
+import { Heading } from "@components/Heading";
+import { QuizResultChart } from "@components/QuizResultChart/QuizResultChart";
 import { calculateCorrectAnswers, calculateTimeDistance } from "./utils";
 
 type Props = {

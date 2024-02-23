@@ -1,7 +1,7 @@
+import { ShuffledQuiz } from "@model/quiz";
+import { kstFormat } from "@utils/date";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { ShuffledQuiz } from "../model/quiz";
-import { kstFormat } from "../utils/date";
 
 interface QuizState {
   quizList: ShuffledQuiz[];
@@ -35,6 +35,6 @@ export const useQuizStore = create(
     {
       name: "quiz-storage",
       storage: createJSONStorage(() => localStorage),
-    }
-  )
+    },
+  ),
 );

@@ -1,8 +1,8 @@
+import { Button } from "@components/Button";
+import { Heading } from "@components/Heading";
+import { QuizReviewCard } from "@components/QuizCards";
+import { useQuizStore } from "@store/quizStore";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/Button";
-import { Heading } from "../components/Heading";
-import { QuizReviewCard } from "../components/QuizCards";
-import { useQuizStore } from "../store/quizStore";
 
 export const ReviewPage = () => {
   const { quizList, userAnswerList } = useQuizStore();

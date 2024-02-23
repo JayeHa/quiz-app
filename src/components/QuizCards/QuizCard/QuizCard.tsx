@@ -1,11 +1,11 @@
+import { Button } from "@components/Button";
+import { Loading } from "@components/Loading";
+import { Text } from "@components/Text";
+import { ShuffledQuiz } from "@model/quiz";
+import { useQuizStore } from "@store/quizStore";
+import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ShuffledQuiz } from "../../../model/quiz";
-import { useQuizStore } from "../../../store/quizStore";
-import { EMPTY_SHUFFLED_QUIZ } from "../../../tests/fakeQuizzes";
-import { Button } from "../../Button";
-import { Loading } from "../../Loading";
-import { Text } from "../../Text";
 
 interface Props {
   quiz: ShuffledQuiz | null;

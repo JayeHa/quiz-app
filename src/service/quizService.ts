@@ -1,5 +1,5 @@
+import { QuizPayload, QuizResponse } from "@model/quiz";
 import axios from "axios";
-import { QuizPayload, QuizResponse } from "../model/quiz";
 
 const API_URL = "https://opentdb.com/api.php";
 

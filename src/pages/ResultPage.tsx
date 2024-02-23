@@ -1,8 +1,8 @@
+import { Button } from "@components/Button";
+import { Heading } from "@components/Heading";
+import { QuizSummary } from "@components/QuizSummary/QuizSummary";
+import { useQuizStore } from "@store/quizStore";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/Button";
-import { Heading } from "../components/Heading";
-import { QuizSummary } from "../components/QuizSummary/QuizSummary";
-import { useQuizStore } from "../store/quizStore";
 
 export const ResultPage = () => {
   const { userAnswerList, quizList, startDate, endDate } = useQuizStore();

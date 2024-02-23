@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { fakeQuizzes } from "@tests/fakeQuizzes";
+import { withRouter } from "@tests/utils";
 import { Route } from "react-router-dom";
-import { fakeQuizzes } from "../../../tests/fakeQuizzes";
-import { withRouter } from "../../../tests/utils";
 import { QuizCard } from "./QuizCard";
 
 const FAKE_QUIZ = fakeQuizzes[0];

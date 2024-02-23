@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { withRouter } from "@tests/utils";
 import { Route } from "react-router-dom";
-import { withRouter } from "../tests/utils";
 import { HomePage } from "./HomePage";
 
 describe("Home", () => {
@@ -20,8 +20,8 @@ describe("Home", () => {
         <>
           <Route path="/" element={<HomePage />} />
           <Route path="/quiz" element={<div>{QUIZ_PAGE_TEXT}</div>} />
-        </>
-      )
+        </>,
+      ),
     );
 
     const startButton = screen.getByRole("button", { name: /퀴즈 풀기/ });

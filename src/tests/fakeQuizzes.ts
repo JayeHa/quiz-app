@@ -1,4 +1,4 @@
-import { ShuffledQuiz } from "../model/quiz";
+import { ShuffledQuiz } from "@model/quiz";
 
 export const EMPTY_SHUFFLED_QUIZ = {
   question: "",
