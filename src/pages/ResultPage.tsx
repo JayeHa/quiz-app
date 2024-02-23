@@ -1,4 +1,5 @@
 import { Button } from "@components/Button";
+import { EmptyView } from "@components/EmptyView";
 import { Heading } from "@components/Heading";
 import { QuizSummary } from "@components/QuizSummary/QuizSummary";
 import { useQuizStore } from "@store/quizStore";
@@ -7,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 export const ResultPage = () => {
   const { userAnswerList, quizList, startDate, endDate } = useQuizStore();
   const navigate = useNavigate();
+
+  if (userAnswerList.length === 0) {
+    return <EmptyView title="퀴즈 결과가 존재하지 않습니다." />;
+  }
 
   return (
     <>

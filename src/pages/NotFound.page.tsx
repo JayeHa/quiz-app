@@ -1,3 +1,5 @@
+import { EmptyView } from "@components/EmptyView";
+
 export const NotFound = () => {
-  return <div>Not Found</div>;
+  return <EmptyView className="h-svh" />;
 };
