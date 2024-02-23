@@ -1,12 +1,14 @@
-import { HTMLAttributes } from "react";
+import { ReactNode } from "react";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type HeadingTag = `h${HeadingLevel}`;
 type HeadingSize = "lg" | "md" | "invisible";
 
-type Props = HTMLAttributes<HTMLHeadingElement> & {
+type Props = {
   level: HeadingLevel;
   size?: HeadingSize;
+  className?: string;
+  children: ReactNode;
 };
 
 const HEADING_STYLES: Record<HeadingSize, string> = {
