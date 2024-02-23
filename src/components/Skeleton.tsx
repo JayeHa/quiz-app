@@ -1,6 +1,10 @@
-import { HTMLAttributes, ReactElement } from "react";
+import { HTMLAttributes, PropsWithChildren, ReactElement } from "react";
 
-type Props = {
+const SkeletonContainer = ({ children }: PropsWithChildren) => {
+  return <div className="w-full animate-pulse">{children}</div>;
+};
+
+type SkeletonGridProps = {
   className?: HTMLAttributes<HTMLDivElement>["className"];
   children?: ReactElement | ReactElement[];
   rows?: number;
@@ -9,17 +13,17 @@ type Props = {
   itemHeight?: number;
 };
 
-export const Skeleton = ({
+const SkeletonGrid = ({
   columns = 1,
   rows = 1,
   gap = 10,
   itemHeight = 100,
   children,
   ...props
-}: Props) => {
+}: SkeletonGridProps) => {
   return (
     <div
-      className="grid w-full animate-pulse"
+      className="grid w-full"
       style={{
         gap,
         gridTemplateRows: "auto",
@@ -38,3 +42,16 @@ export const Skeleton = ({
     </div>
   );
 };
+
+const Skeleton = (props: SkeletonGridProps) => {
+  return (
+    <SkeletonContainer>
+      <SkeletonGrid {...props} />
+    </SkeletonContainer>
+  );
+};
+
+Skeleton.Grid = SkeletonGrid;
+Skeleton.Container = SkeletonContainer;
+
+export default Skeleton;
