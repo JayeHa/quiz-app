@@ -1,8 +1,8 @@
 import { Button, ButtonColor } from "@components/Button";
-import { Heading } from "@components/Heading";
 import { Text } from "@components/Text";
 import { ShuffledQuiz } from "@model/quiz";
 import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
+import { QuestionBox } from "../QuestionBox";
 
 interface Props {
   quiz: ShuffledQuiz;
@@ -26,16 +26,13 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
 
   return (
     <article className="flex flex-col gap-6">
-      <div>
-        <Text className="text-lg font-semibold text-neutral-500">
-          {category}
-        </Text>
-        <Heading level={3} size="md">
-          {userAnswer === correct_answer ? "✅" : "❌"} {index + 1}.{" "}
-          <Text>{question}</Text>{" "}
-          <Text className="text-xl font-semibold text-neutral-500">{`[${difficulty}]`}</Text>
-        </Heading>
-      </div>
+      <QuestionBox
+        index={index}
+        question={question}
+        category={category}
+        difficulty={difficulty}
+        prefix={userAnswer === correct_answer ? "✅" : "❌"}
+      />
 
       <div className="flex flex-col gap-1 md:flex-row">
         {shuffledAnswers.map((answer) => (
