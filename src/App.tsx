@@ -1,9 +1,6 @@
-import { Header } from "@components/Header";
-import { Loading } from "@components/Loading";
+import { Layout } from "@components/Layout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,14 +13,7 @@ const queryClient = new QueryClient({
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <Suspense fallback={<Loading />}>
-        <main className="flex flex-col items-center px-5 py-10">
-          <div className="w-full max-w-[1000px]">
-            <Outlet />
-          </div>
-        </main>
-      </Suspense>
+      <Layout />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
