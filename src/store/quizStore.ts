@@ -3,11 +3,13 @@ import { kstFormat } from "@utils/date";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-interface QuizState {
+const QUIZ_STORAGE_NAME = "quiz-storage";
+
+export interface QuizState {
   quizList: ShuffledQuiz[];
+  userAnswerList: string[];
   startDate: string | null;
   endDate: string | null;
-  userAnswerList: string[];
   setQuizList: (quizList: ShuffledQuiz[], startDate?: Date) => void;
   setUserAnswer: (answer: string) => void;
   setEndDate: (endDate?: Date) => void;
@@ -15,11 +17,11 @@ interface QuizState {
 
 export const useQuizStore = create(
   persist<QuizState>(
-    (set, get) => ({
+    (set) => ({
       quizList: [],
+      userAnswerList: [],
       startDate: null,
       endDate: null,
-      userAnswerList: [],
       setQuizList: (quizList, startDate = new Date()) =>
         set({
           quizList,
@@ -27,13 +29,16 @@ export const useQuizStore = create(
           endDate: null,
           userAnswerList: [],
         }),
-      setUserAnswer: (answer) =>
-        set({ userAnswerList: [...get().userAnswerList, answer] }),
+      setUserAnswer: (answer) => {
+        set((state) => ({
+          userAnswerList: [...state.userAnswerList, answer],
+        }));
+      },
       setEndDate: (endDate = new Date()) =>
         set({ endDate: kstFormat(endDate) }),
     }),
     {
-      name: "quiz-storage",
+      name: QUIZ_STORAGE_NAME,
       storage: createJSONStorage(() => localStorage),
     },
   ),
