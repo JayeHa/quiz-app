@@ -7,12 +7,28 @@ module.exports = {
     extend: {
       spacing: {
         GNB_HEIGHT: "5rem",
-        MAX_CONTENT_WIDTH: "62.5rem",
+        BOTTOM_BAR_HEIGHT: "6.25rem",
+
+        MAX_MAIN_WIDTH: "62.5rem",
+        MAIN_PADDING_X: "1.25rem",
       },
+
       zIndex: {
+        BOTTOM_BAR: "40",
         GNB: "50",
       },
+
+      animation: {
+        "slide-up": "slideUp 0.35s ease-out forwards",
+      },
+      keyframes: {
+        slideUp: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
     },
+
     colors: {
       ...colors,
       red: "#b91c1c",

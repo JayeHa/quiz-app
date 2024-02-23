@@ -19,22 +19,24 @@ export const ResultPage = () => {
         endDate={endDate}
       />
 
-      <footer className="mt-2 flex gap-2 md:mt-10">
-        <Button
-          className="w-1/2"
-          color="gray"
-          variant="outlined"
-          onClick={() => navigate("/")}
-        >
-          홈으로
-        </Button>
-        <Button
-          className="w-full"
-          variant="outlined"
-          onClick={() => navigate("/review")}
-        >
-          오답노트 보러가기
-        </Button>
+      <footer className="bottom-bar mt-2 md:mt-12">
+        <div className="flex gap-2">
+          <Button
+            className="w-1/2"
+            color="gray"
+            variant="outlined"
+            onClick={() => navigate("/")}
+          >
+            홈으로
+          </Button>
+          <Button
+            className="w-full"
+            variant="outlined"
+            onClick={() => navigate("/review")}
+          >
+            오답노트 보러가기
+          </Button>
+        </div>
       </footer>
     </>
   );

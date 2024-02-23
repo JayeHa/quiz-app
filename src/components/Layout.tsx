@@ -10,10 +10,10 @@ export const Layout = () => {
         <Header />
       </div>
 
-      <div className="mt-GNB_HEIGHT">
+      <div className="mt-GNB_HEIGHT mb-BOTTOM_BAR_HEIGHT md:mb-0">
         <Suspense fallback={<Loading />}>
-          <main className="flex flex-col items-center px-5 py-10">
-            <div className="max-w-MAX_CONTENT_WIDTH w-full">
+          <main className="px-MAIN_PADDING_X flex flex-col items-center py-10">
+            <div className="max-w-MAX_MAIN_WIDTH w-full">
               <Outlet />
             </div>
           </main>

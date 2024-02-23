@@ -23,22 +23,24 @@ export const ReviewPage = () => {
         ))}
       </div>
 
-      <footer className="mt-16 flex gap-2">
-        <Button
-          className="w-1/2"
-          color="gray"
-          variant="outlined"
-          onClick={() => navigate("/result")}
-        >
-          뒤로
-        </Button>
-        <Button
-          className="w-full"
-          variant="outlined"
-          onClick={() => navigate("/")}
-        >
-          홈으로
-        </Button>
+      <footer className="bottom-bar mt-16">
+        <div className="flex gap-2">
+          <Button
+            className="w-1/2"
+            color="gray"
+            variant="outlined"
+            onClick={() => navigate("/result")}
+          >
+            뒤로
+          </Button>
+          <Button
+            className="w-full"
+            variant="outlined"
+            onClick={() => navigate("/")}
+          >
+            홈으로
+          </Button>
+        </div>
       </footer>
     </>
   );

@@ -53,28 +53,31 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
           );
         })}
       </div>
-      {userAnswer && (
-        <div className="flex items-center justify-between">
-          <ResultText
-            isCorrect={userAnswer === correct_answer}
-            correctText="맞았습니다 🟢"
-            incorrectText="틀렸습니다 ❌"
-          />
 
-          <Button
-            className="w-1/2 max-w-[300px]"
-            onClick={() => {
-              handleNextButton(userAnswer);
-              setUserAnswer(null);
-              if (isLastQuiz) {
-                navigate("/result");
-                setEndDate();
-              }
-            }}
-          >
-            {isLastQuiz ? "결과 보기" : "다음 문항"}
-          </Button>
-        </div>
+      {userAnswer && (
+        <footer className="bottom-bar animate-slide-up md:animate-none">
+          <div className="flex items-center justify-between">
+            <ResultText
+              isCorrect={userAnswer === correct_answer}
+              correctText="맞았습니다 🟢"
+              incorrectText="틀렸습니다 ❌"
+            />
+
+            <Button
+              className="w-1/2 max-w-[300px]"
+              onClick={() => {
+                handleNextButton(userAnswer);
+                setUserAnswer(null);
+                if (isLastQuiz) {
+                  navigate("/result");
+                  setEndDate();
+                }
+              }}
+            >
+              {isLastQuiz ? "결과 보기" : "다음 문항"}
+            </Button>
+          </div>
+        </footer>
       )}
     </article>
   );
