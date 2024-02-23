@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
+import { Heading } from "../components/Heading";
 import { QuizSummary } from "../components/QuizSummary/QuizSummary";
 import { useQuizStore } from "../store/quizStore";
 
@@ -9,6 +10,8 @@ export const ResultPage = () => {
 
   return (
     <>
+      <Heading level={2}>퀴즈 결과</Heading>
+
       <QuizSummary
         correctAnswerList={quizList.map(({ correct_answer }) => correct_answer)}
         userAnswerList={userAnswerList}
@@ -16,11 +19,11 @@ export const ResultPage = () => {
         endDate={endDate}
       />
 
-      <div className="mt-2 flex gap-2 md:mt-10">
+      <footer className="mt-2 flex gap-2 md:mt-10">
         <Button
           className="w-1/2"
           variant="default"
-          onClick={() => navigate("/review")}
+          onClick={() => navigate("/")}
         >
           홈으로
         </Button>
@@ -31,7 +34,7 @@ export const ResultPage = () => {
         >
           오답노트 보러가기
         </Button>
-      </div>
+      </footer>
     </>
   );
 };

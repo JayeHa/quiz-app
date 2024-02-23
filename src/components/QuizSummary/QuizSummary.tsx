@@ -1,3 +1,4 @@
+import { Heading } from "../Heading";
 import { QuizResultChart } from "../QuizResultChart/QuizResultChart";
 import { calculateCorrectAnswers, calculateTimeDistance } from "./utils";
 
@@ -26,10 +27,11 @@ export const QuizSummary = ({
 
   return (
     <article className="flex flex-col justify-around gap-7 md:flex-row">
+      <Heading level={3} size="invisible">
+        요약 정보
+      </Heading>
       <div className="flex w-full flex-col gap-2 md:w-1/2">
-        <h2 className="mb-2 text-4xl font-bold">퀴즈 요약</h2>
-
-        <p className="mb-4 text-2xl">
+        <p className="mb-4 break-keep text-2xl">
           당신은 <strong>{dateDistanceText}의 시간동안</strong> 퀴즈에 참여하여{" "}
           {correctAnswerList.length}문제를 풀었습니다. 그 과정에서{" "}
           <strong className="text-green">
