@@ -23,7 +23,7 @@ export const QuestionBox = ({
         <span>{prefix}</span>
         <span>{index + 1}. </span>
         <Text>{question}</Text>{" "}
-        <Text className="text-xl font-semibold text-neutral-500">{`[${difficulty}]`}</Text>
+        <Text className="text-xl font-semibold text-green">{`[${difficulty}]`}</Text>
       </Heading>
     </div>
   );

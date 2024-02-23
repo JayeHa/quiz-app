@@ -16,8 +16,9 @@ const renderQuizCard = (quiz = FAKE_QUIZ, isLastQuiz = false) => {
         element={
           <QuizCard
             quiz={quiz}
+            total={3}
+            current={isLastQuiz ? 2 : 0}
             handleNextButton={handleNextButtonMock}
-            isLastQuiz={isLastQuiz}
           />
         }
       />,
@@ -86,7 +87,7 @@ describe("QuizCard", () => {
       expect(answerButton).toBeDisabled();
     });
 
-    it("다음 문항 버튼을 클릭하여 다음 문항으로 이동할 수 있다.", async () => {
+    it("'다음 문항' 버튼을 클릭하여 다음 문항으로 이동할 수 있다.", async () => {
       renderQuizCard();
 
       const answerButton = screen.getByRole("button", {
@@ -102,7 +103,7 @@ describe("QuizCard", () => {
       expect(answerButton).not.toBeDisabled();
     });
 
-    it("isLastQuiz가 true일 때 결과 보기 버튼이 렌더된다.", () => {
+    it("마지막 순서의 퀴즈일 때는 '결과 보기' 버튼이 렌더된다.", () => {
       renderQuizCard(FAKE_QUIZ, true);
 
       const answerButton = screen.getByRole("button", {

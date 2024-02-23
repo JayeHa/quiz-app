@@ -6,14 +6,17 @@ import { useQuizStore } from "@store/quizStore";
 import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { QuestionBox } from "../QuestionBox";
 
 interface Props {
   quiz: ShuffledQuiz | null;
   handleNextButton: (userAnswer: string) => void;
-  isLastQuiz?: boolean;
+  total: number;
+  current: number;
 }
 
-export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
+export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
+  const isLastQuiz = current >= total - 1;
   const { question, correct_answer, shuffledAnswers, category, difficulty } =
     quiz ?? EMPTY_SHUFFLED_QUIZ;
 
@@ -25,17 +28,12 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
 
   return (
     <article className="flex flex-col gap-8">
-      <div>
-        <Text className="text-lg font-semibold text-neutral-500">
-          {category}
-        </Text>
-        <div className="flex items-center">
-          <h2 className="text-2xl font-bold">
-            <Text className="text-xl font-semibold text-red">{`[${difficulty}]`}</Text>{" "}
-            <Text>{question}</Text>
-          </h2>
-        </div>
-      </div>
+      <QuestionBox
+        index={current + 1}
+        question={question}
+        category={category}
+        difficulty={difficulty}
+      />
 
       <div className="flex flex-col gap-4">
         {shuffledAnswers.map((answer) => (
