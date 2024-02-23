@@ -1,7 +1,7 @@
+import { EMPTY_SHUFFLED_QUIZ } from "@/data/quizSampleData";
 import { Button, ButtonColor } from "@components/Buttons";
 import { Text } from "@components/Text";
 import { ShuffledQuiz } from "@model/quiz";
-import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
 import { QuestionBox } from "../QuestionBox";
 
 function determineAnswerButtonColor(

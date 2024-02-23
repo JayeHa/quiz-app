@@ -1,9 +1,9 @@
+import { EMPTY_SHUFFLED_QUIZ } from "@/data/quizSampleData";
 import { Button } from "@components/Buttons";
 import { EmptyView } from "@components/EmptyView";
 import { Text } from "@components/Text";
 import { ShuffledQuiz } from "@model/quiz";
 import { useQuizStore } from "@store/quizStore";
-import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { QuestionBox } from "../QuestionBox";

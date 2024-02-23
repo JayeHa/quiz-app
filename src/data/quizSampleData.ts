@@ -10,7 +10,7 @@ export const EMPTY_SHUFFLED_QUIZ: ShuffledQuiz = {
   shuffledAnswers: [],
 };
 
-export const FAKE_SHUFFLED_QUIZ_LIST: ShuffledQuiz[] = [
+export const SAMPLE_SHUFFLED_QUIZ_LIST: ShuffledQuiz[] = [
   {
     type: "multiple",
     difficulty: "medium",
