@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
+import { Heading } from "../components/Heading";
 import { QuizReviewCard } from "../components/QuizReviewCard/QuizReviewCard";
 import { useQuizStore } from "../store/quizStore";
 
@@ -9,7 +10,8 @@ export const ReviewPage = () => {
 
   return (
     <>
-      <h2 className="mb-6 text-4xl font-bold">오답노트</h2>
+      <Heading level={2}>오답노트</Heading>
+
       <div className="flex flex-col gap-16">
         {quizList.map((quiz, i) => (
           <QuizReviewCard
@@ -21,7 +23,7 @@ export const ReviewPage = () => {
         ))}
       </div>
 
-      <div className="mt-16 flex gap-2">
+      <footer className="mt-16 flex gap-2">
         <Button
           className="w-1/2"
           variant="default"
@@ -36,7 +38,7 @@ export const ReviewPage = () => {
         >
           홈으로
         </Button>
-      </div>
+      </footer>
     </>
   );
 };

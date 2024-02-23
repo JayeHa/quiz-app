@@ -1,6 +1,7 @@
 import { ShuffledQuiz } from "../../model/quiz";
 import { EMPTY_SHUFFLED_QUIZ } from "../../tests/fakeQuizzes";
 import { Button } from "../Button";
+import { Heading } from "../Heading";
 import { Text } from "../Text";
 
 interface Props {
@@ -29,11 +30,11 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
         <Text className="text-lg font-semibold text-neutral-500">
           {category}
         </Text>
-        <h3 className="text-2xl font-bold">
+        <Heading level={3} size="md">
           {userAnswer === correct_answer ? "✅" : "❌"} {index + 1}.{" "}
           <Text>{question}</Text>{" "}
           <Text className="text-xl font-semibold text-neutral-500">{`[${difficulty}]`}</Text>
-        </h3>
+        </Heading>
       </div>
 
       <div className="flex flex-col gap-1 md:flex-row">
