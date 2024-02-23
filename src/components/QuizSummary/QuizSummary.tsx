@@ -1,13 +1,11 @@
 import { Heading } from "@components/Heading";
 import { QuizResultChart } from "@components/QuizResultChart/QuizResultChart";
+import { QuizState } from "@store/quizStore";
 import { calculateCorrectAnswers, calculateTimeDistance } from "./utils";
 
 type Props = {
   correctAnswerList: string[];
-  userAnswerList: string[];
-  startDate: string | null;
-  endDate: string | null;
-};
+} & Pick<QuizState, "startDate" | "endDate" | "userAnswerList">;
 
 export const QuizSummary = ({
   correctAnswerList,

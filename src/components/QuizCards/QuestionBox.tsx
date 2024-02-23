@@ -1,20 +1,18 @@
 import { Heading } from "@components/Heading";
 import { Text } from "@components/Text";
+import { Quiz } from "@model/quiz";
 
 type Props = {
   index: number;
-  question: string;
-  category: string;
-  difficulty: string;
   prefix?: string;
-};
+} & Pick<Quiz, "question" | "category" | "difficulty">;
 
 export const QuestionBox = ({
   index,
+  prefix,
   question,
   category,
   difficulty,
-  prefix,
 }: Props) => {
   return (
     <div>
