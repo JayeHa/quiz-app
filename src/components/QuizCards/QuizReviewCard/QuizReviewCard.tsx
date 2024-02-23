@@ -1,8 +1,8 @@
+import { Button, ButtonColor } from "@components/Button";
+import { Heading } from "@components/Heading";
+import { Text } from "@components/Text";
 import { ShuffledQuiz } from "@model/quiz";
 import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
-import { Button } from "../../Button";
-import { Heading } from "../../Heading";
-import { Text } from "../../Text";
 
 interface Props {
   quiz: ShuffledQuiz;
@@ -18,10 +18,10 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
     answer: string,
     correctAnswer: string,
     userAnswer: string,
-  ) => {
-    if (answer === correctAnswer) return "bg-green disabled:opacity-100";
-    if (answer === userAnswer) return "bg-red disabled:opacity-100";
-    return "";
+  ): ButtonColor => {
+    if (answer === correctAnswer) return "green";
+    if (answer === userAnswer) return "red";
+    return "gray";
   };
 
   return (
@@ -42,19 +42,20 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
           <Button
             key={answer}
             disabled
+            color={getButtonColor(answer, correct_answer, userAnswer)}
             variant={
               answer === correct_answer || answer === userAnswer
                 ? "filled"
-                : "default"
+                : "outlined"
             }
-            className={getButtonColor(answer, correct_answer, userAnswer)}
+            style={{ opacity: "100%" }}
           >
             <Text>{answer}</Text>
           </Button>
         ))}
       </div>
 
-      <div className="text-primary flex flex-col gap-1 text-2xl ">
+      <div className="text-gray flex flex-col gap-1 text-2xl ">
         <span>
           선택한 답: <Text className="font-bold">{userAnswer}</Text>
         </span>

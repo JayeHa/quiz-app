@@ -31,7 +31,7 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
         </Text>
         <div className="flex items-center">
           <h2 className="text-2xl font-bold">
-            <Text className="text-red text-xl font-semibold">{`[${difficulty}]`}</Text>{" "}
+            <Text className="text-xl font-semibold text-red">{`[${difficulty}]`}</Text>{" "}
             <Text>{question}</Text>
           </h2>
         </div>
@@ -41,7 +41,8 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
         {shuffledAnswers.map((answer) => (
           <Button
             key={answer}
-            variant={answer === userAnswer ? "filled" : "default"}
+            color={answer === userAnswer ? "red" : "gray"}
+            variant={answer === userAnswer ? "filled" : "outlined"}
             onClick={() => setUserAnswer(answer)}
             disabled={!!userAnswer}
           >
@@ -59,7 +60,6 @@ export const QuizCard = ({ quiz, handleNextButton, isLastQuiz }: Props) => {
           </span>
 
           <Button
-            variant="filled"
             className="w-1/2 max-w-[300px]"
             onClick={() => {
               handleNextButton(userAnswer);

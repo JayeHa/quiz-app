@@ -6,9 +6,7 @@ export const HomePage = () => {
 
   return (
     <div>
-      <Button variant="filled" onClick={() => navigate("/quiz")}>
-        퀴즈 풀기
-      </Button>
+      <Button onClick={() => navigate("/quiz")}>퀴즈 풀기</Button>
     </div>
   );
 };

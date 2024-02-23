@@ -26,7 +26,8 @@ export const ReviewPage = () => {
       <footer className="mt-16 flex gap-2">
         <Button
           className="w-1/2"
-          variant="default"
+          color="gray"
+          variant="outlined"
           onClick={() => navigate("/result")}
         >
           뒤로

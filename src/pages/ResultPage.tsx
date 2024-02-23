@@ -22,7 +22,8 @@ export const ResultPage = () => {
       <footer className="mt-2 flex gap-2 md:mt-10">
         <Button
           className="w-1/2"
-          variant="default"
+          color="gray"
+          variant="outlined"
           onClick={() => navigate("/")}
         >
           홈으로
