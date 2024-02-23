@@ -57,6 +57,10 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
         })}
       </div>
 
+      <div className="text-right text-neutral-200 md:mb-28">
+        정답: <Text>{correct_answer}</Text>
+      </div>
+
       {userAnswer && (
         <footer className="bottom-bar animate-slide-up md:animate-none">
           <div className="flex items-center justify-between">
