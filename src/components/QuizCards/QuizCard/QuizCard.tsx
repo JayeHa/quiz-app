@@ -37,17 +37,20 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
       />
 
       <div className="flex flex-col gap-4">
-        {shuffledAnswers.map((answer) => (
-          <Button
-            key={answer}
-            color={answer === userAnswer ? "red" : "gray"}
-            variant={answer === userAnswer ? "filled" : "outlined"}
-            onClick={() => setUserAnswer(answer)}
-            disabled={!!userAnswer}
-          >
-            <Text>{answer}</Text>
-          </Button>
-        ))}
+        {shuffledAnswers.map((answer) => {
+          const isUserAnswer = answer === userAnswer;
+          return (
+            <Button
+              key={answer}
+              color={isUserAnswer ? "red" : "gray"}
+              variant={isUserAnswer ? "filled" : "outlined"}
+              onClick={() => setUserAnswer(answer)}
+              disabled={!!userAnswer}
+            >
+              <Text>{answer}</Text>
+            </Button>
+          );
+        })}
       </div>
 
       {userAnswer && (
