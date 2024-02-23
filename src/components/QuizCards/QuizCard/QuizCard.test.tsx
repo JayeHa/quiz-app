@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { fakeQuizzes } from "@tests/fakeQuizzes";
+import { FAKE_SHUFFLED_QUIZ_LIST } from "@tests/fakeQuizzes";
 import { withRouter } from "@tests/utils";
 import { Route } from "react-router-dom";
 import { QuizCard } from "./QuizCard";
 
-const FAKE_QUIZ = fakeQuizzes[0];
+const FAKE_QUIZ = FAKE_SHUFFLED_QUIZ_LIST[0];
 const handleNextButtonMock = jest.fn();
 
 const renderQuizCard = (quiz = FAKE_QUIZ, isLastQuiz = false) => {
