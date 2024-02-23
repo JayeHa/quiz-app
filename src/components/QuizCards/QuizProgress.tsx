@@ -7,7 +7,12 @@ export const QuizProgress = () => {
   const total = correctAnswerList.length;
   const current = userAnswerList.length;
 
-  const getProgressColor = (userAnswer: string, correctAnswer: string) => {
+  const getProgressColor = (
+    userAnswer: string,
+    correctAnswer: string,
+    isCurrent: boolean,
+  ) => {
+    if (isCurrent) return "bg-neutral-500";
     if (!userAnswer) return "bg-neutral-200";
     return userAnswer === correctAnswer ? "bg-green" : "bg-red";
   };
@@ -26,7 +31,7 @@ export const QuizProgress = () => {
           return (
             <div
               key={correctAnswer}
-              className={`h-1 ${getProgressColor(userAnswer, correctAnswer)}`}
+              className={`h-1 ${getProgressColor(userAnswer, correctAnswer, i === current)}`}
               style={{
                 width: `${(1 / total) * 100}%`,
               }}
