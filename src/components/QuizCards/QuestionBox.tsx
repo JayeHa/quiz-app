@@ -1,6 +1,6 @@
 import { Heading } from "@components/Heading";
 import { Text } from "@components/Text";
-import { Quiz } from "@model/quiz";
+import { Quiz } from "@models/quiz";
 
 type Props = {
   index: number;

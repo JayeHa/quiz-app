@@ -1,4 +1,4 @@
-import { DEFAULT_AMOUNT, Quiz, QuizPayload, QuizResponse } from "@model/quiz";
+import { DEFAULT_AMOUNT, Quiz, QuizPayload, QuizResponse } from "@models/quiz";
 import { useQuizStore } from "@store/quizStore";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { shuffleArray } from "@utils/shuffleArray";

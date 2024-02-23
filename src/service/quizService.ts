@@ -1,4 +1,4 @@
-import { QuizPayload, QuizResponse } from "@model/quiz";
+import { QuizPayload, QuizResponse } from "@models/quiz";
 import axios from "axios";
 import axiosRetry from "axios-retry";
 

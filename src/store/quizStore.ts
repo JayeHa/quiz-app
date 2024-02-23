@@ -1,4 +1,4 @@
-import { ShuffledQuiz } from "@model/quiz";
+import { ShuffledQuiz } from "@models/quiz";
 import { kstFormat } from "@utils/date";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";

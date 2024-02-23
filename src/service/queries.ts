@@ -1,4 +1,4 @@
-import { Quiz, QuizPayload, QuizResponse } from "@model/quiz";
+import { Quiz, QuizPayload, QuizResponse } from "@models/quiz";
 import { UseSuspenseQueryOptions } from "@tanstack/react-query";
 import { QuizService } from "./quizService";
 
