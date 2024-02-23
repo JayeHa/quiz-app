@@ -1,21 +1,25 @@
 import { useQuizStore } from "@store/quizStore";
 
+const determineProgressIndicatorColor = (
+  userAnswer: string,
+  correctAnswer: string,
+  isCurrent: boolean,
+) => {
+  const CURRENT_PROGRESS = "bg-neutral-500";
+  const UNANSWERED = "bg-neutral-200";
+  const CORRECT = "bg-green";
+  const INCORRECT = "bg-red";
+
+  if (isCurrent) return CURRENT_PROGRESS;
+  if (!userAnswer) return UNANSWERED;
+  return userAnswer === correctAnswer ? CORRECT : INCORRECT;
+};
+
 export const QuizProgress = () => {
   const { userAnswerList, quizList } = useQuizStore();
-
   const correctAnswerList = quizList.map((quiz) => quiz.correct_answer);
   const total = correctAnswerList.length;
   const current = userAnswerList.length;
-
-  const getProgressColor = (
-    userAnswer: string,
-    correctAnswer: string,
-    isCurrent: boolean,
-  ) => {
-    if (isCurrent) return "bg-neutral-500";
-    if (!userAnswer) return "bg-neutral-200";
-    return userAnswer === correctAnswer ? "bg-green" : "bg-red";
-  };
 
   return (
     <div>
@@ -31,11 +35,11 @@ export const QuizProgress = () => {
           return (
             <div
               key={correctAnswer}
-              className={`h-1 ${getProgressColor(userAnswer, correctAnswer, i === current)}`}
+              className={`h-1 ${determineProgressIndicatorColor(userAnswer, correctAnswer, i === current)}`}
               style={{
                 width: `${(1 / total) * 100}%`,
               }}
-            ></div>
+            />
           );
         })}
       </div>

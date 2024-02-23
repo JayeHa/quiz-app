@@ -1,5 +1,5 @@
 import { Button } from "@components/Buttons";
-import { Loading } from "@components/Loading";
+import { EmptyView } from "@components/EmptyView";
 import { Text } from "@components/Text";
 import { ShuffledQuiz } from "@model/quiz";
 import { useQuizStore } from "@store/quizStore";
@@ -18,15 +18,17 @@ interface Props {
 }
 
 export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
-  const isLastQuiz = current >= total - 1;
+  const navigate = useNavigate();
+
+  const { setEndDate } = useQuizStore();
+  const [userAnswer, setUserAnswer] = useState<string | null>(null);
+
   const { question, correct_answer, shuffledAnswers, category, difficulty } =
     quiz ?? EMPTY_SHUFFLED_QUIZ;
 
-  const navigate = useNavigate();
-  const [userAnswer, setUserAnswer] = useState<string | null>(null);
-  const { setEndDate } = useQuizStore();
+  const isLastQuiz = current >= total - 1;
 
-  if (!quiz) return <Loading />;
+  if (!quiz) return <EmptyView title="퀴즈가 존재하지 않습니다." />;
 
   return (
     <article className="flex flex-col gap-8">
@@ -37,16 +39,17 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
         category={category}
         difficulty={difficulty}
       />
+
       <div className="flex flex-col gap-4">
         {shuffledAnswers.map((answer) => {
           const isUserAnswer = answer === userAnswer;
           return (
             <Button
               key={answer}
+              disabled={!!userAnswer}
+              onClick={() => setUserAnswer(answer)}
               color={isUserAnswer ? "red" : "gray"}
               variant={isUserAnswer ? "filled" : "outlined"}
-              onClick={() => setUserAnswer(answer)}
-              disabled={!!userAnswer}
             >
               <Text>{answer}</Text>
             </Button>

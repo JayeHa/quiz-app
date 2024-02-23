@@ -4,6 +4,20 @@ import { ShuffledQuiz } from "@model/quiz";
 import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
 import { QuestionBox } from "../QuestionBox";
 
+function determineAnswerButtonColor(
+  answer: string,
+  correctAnswer: string,
+  userAnswer: string,
+): ButtonColor {
+  const CORRECT = "green";
+  const INCORRECT = "red";
+  const NORMAL = "gray";
+
+  if (answer === correctAnswer) return CORRECT;
+  if (answer === userAnswer && userAnswer !== correctAnswer) return INCORRECT;
+  return NORMAL;
+}
+
 interface Props {
   quiz: ShuffledQuiz;
   userAnswer: string;
@@ -13,16 +27,6 @@ interface Props {
 export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
   const { question, correct_answer, shuffledAnswers, category, difficulty } =
     quiz ?? EMPTY_SHUFFLED_QUIZ;
-
-  const getButtonColor = (
-    answer: string,
-    correctAnswer: string,
-    userAnswer: string,
-  ): ButtonColor => {
-    if (answer === correctAnswer) return "green";
-    if (answer === userAnswer) return "red";
-    return "gray";
-  };
 
   return (
     <article className="flex flex-col gap-6">
@@ -39,7 +43,11 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
           <Button
             key={answer}
             disabled
-            color={getButtonColor(answer, correct_answer, userAnswer)}
+            color={determineAnswerButtonColor(
+              answer,
+              correct_answer,
+              userAnswer,
+            )}
             variant={
               answer === correct_answer || answer === userAnswer
                 ? "filled"
@@ -52,7 +60,7 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
         ))}
       </div>
 
-      <div className="flex flex-col gap-1 text-2xl text-gray ">
+      <div className="flex flex-col gap-1 text-2xl text-gray">
         <span>
           선택한 답: <Text className="font-bold">{userAnswer}</Text>
         </span>

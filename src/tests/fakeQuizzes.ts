@@ -1,9 +1,10 @@
 import { ShuffledQuiz } from "@model/quiz";
 
-export const EMPTY_SHUFFLED_QUIZ = {
-  question: "",
-  difficulty: "",
+export const EMPTY_SHUFFLED_QUIZ: ShuffledQuiz = {
+  type: "multiple",
+  difficulty: "easy",
   category: "",
+  question: "",
   correct_answer: "",
   incorrect_answers: [],
   shuffledAnswers: [],

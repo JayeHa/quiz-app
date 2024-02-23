@@ -10,15 +10,13 @@ export const QuizPage = withSuspense(() => {
   const currentQuiz = quizList[userAnswerList.length];
 
   return (
-    <>
-      <QuizCard
-        quiz={currentQuiz}
-        total={quizList.length}
-        current={userAnswerList.length}
-        handleNextButton={(answer) => {
-          setUserAnswer(answer);
-        }}
-      />
-    </>
+    <QuizCard
+      quiz={currentQuiz}
+      total={quizList.length}
+      current={userAnswerList.length}
+      handleNextButton={(answer) => {
+        setUserAnswer(answer);
+      }}
+    />
   );
 }, SkeletonQuizCard);
