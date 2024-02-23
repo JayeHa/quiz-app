@@ -7,6 +7,7 @@ import { EMPTY_SHUFFLED_QUIZ } from "@tests/fakeQuizzes";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { QuestionBox } from "../QuestionBox";
+import { ResultText } from "./ResultText";
 
 interface Props {
   quiz: ShuffledQuiz | null;
@@ -51,11 +52,11 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
 
       {userAnswer && (
         <div className="flex items-center justify-between">
-          <span
-            className={`text-2xl font-bold ${userAnswer === correct_answer ? "text-green" : "text-red"}`}
-          >
-            {userAnswer === correct_answer ? "맞았습니다 🟢" : "틀렸습니다 ❌"}
-          </span>
+          <ResultText
+            isCorrect={userAnswer === correct_answer}
+            correctText="맞았습니다 🟢"
+            incorrectText="틀렸습니다 ❌"
+          />
 
           <Button
             className="w-1/2 max-w-[300px]"
