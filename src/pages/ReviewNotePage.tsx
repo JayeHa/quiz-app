@@ -4,7 +4,7 @@ import { QuizReviewCard } from "@components/QuizCards";
 import { useQuizStore } from "@store/quizStore";
 import { useNavigate } from "react-router-dom";
 
-export const ReviewPage = () => {
+export const ReviewNotePage = () => {
   const { quizList, userAnswerList } = useQuizStore();
   const navigate = useNavigate();
 

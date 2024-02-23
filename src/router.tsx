@@ -4,7 +4,7 @@ import { HomePage } from "./pages/HomePage";
 import { NotFound } from "./pages/NotFound.page";
 import { QuizPage } from "./pages/QuizPage";
 import { ResultPage } from "./pages/ResultPage";
-import { ReviewPage } from "./pages/ReviewPage";
+import { ReviewNotePage } from "./pages/ReviewNotePage";
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "quiz", element: <QuizPage /> },
       { path: "result", element: <ResultPage /> },
-      { path: "review", element: <ReviewPage /> },
+      { path: "review", element: <ReviewNotePage /> },
     ],
   },
 ]);
