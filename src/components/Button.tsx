@@ -22,7 +22,7 @@ export const Button = ({
 }: Props) => {
   return (
     <button
-      className={`rounded-lg border px-6 py-2 text-lg font-semibold shadow transition disabled:cursor-not-allowed disabled:opacity-70 ${BUTTON_VARIANTS[variant]} ${className} `}
+      className={`rounded-lg border px-6 py-3 text-lg font-semibold shadow transition disabled:cursor-not-allowed disabled:opacity-70 ${BUTTON_VARIANTS[variant]} ${className} `}
       type={type}
       {...props}
     >
