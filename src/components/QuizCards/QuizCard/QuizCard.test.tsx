@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Route } from "react-router-dom";
-import { fakeQuizzes } from "../../tests/fakeQuizzes";
-import { withRouter } from "../../tests/utils";
+import { fakeQuizzes } from "../../../tests/fakeQuizzes";
+import { withRouter } from "../../../tests/utils";
 import { QuizCard } from "./QuizCard";
 
 const FAKE_QUIZ = fakeQuizzes[0];
@@ -20,8 +20,8 @@ const renderQuizCard = (quiz = FAKE_QUIZ, isLastQuiz = false) => {
             isLastQuiz={isLastQuiz}
           />
         }
-      />
-    )
+      />,
+    ),
   );
 };
 
@@ -51,7 +51,7 @@ describe("QuizCard", () => {
       userEvent.click(answerButton);
 
       expect(
-        screen.getByRole("button", { name: /다음 문항/ })
+        screen.getByRole("button", { name: /다음 문항/ }),
       ).toBeInTheDocument();
     });
 
@@ -60,7 +60,7 @@ describe("QuizCard", () => {
       userEvent.click(
         screen.getByRole("button", {
           name: FAKE_QUIZ.correct_answer,
-        })
+        }),
       );
 
       expect(screen.getByText(/맞았습니다/)).toBeInTheDocument();
@@ -70,7 +70,7 @@ describe("QuizCard", () => {
       userEvent.click(
         screen.getByRole("button", {
           name: FAKE_QUIZ.incorrect_answers[0],
-        })
+        }),
       );
 
       expect(screen.getByText(/틀렸습니다/)).toBeInTheDocument();
@@ -97,7 +97,7 @@ describe("QuizCard", () => {
       userEvent.click(nextButton);
 
       expect(handleNextButtonMock).toHaveBeenCalledWith(
-        FAKE_QUIZ.correct_answer
+        FAKE_QUIZ.correct_answer,
       );
       expect(answerButton).not.toBeDisabled();
     });
@@ -111,10 +111,10 @@ describe("QuizCard", () => {
       userEvent.click(answerButton);
 
       expect(
-        screen.queryByRole("button", { name: "다음 문항" })
+        screen.queryByRole("button", { name: "다음 문항" }),
       ).not.toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: "결과 보기" })
+        screen.getByRole("button", { name: "결과 보기" }),
       ).toBeInTheDocument();
     });
   });

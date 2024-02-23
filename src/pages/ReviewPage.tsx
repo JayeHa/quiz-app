@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
-import { QuizReviewCard } from "../components/QuizReviewCard/QuizReviewCard";
+import { QuizReviewCard } from "../components/QuizCards";
 import { useQuizStore } from "../store/quizStore";
 
 export const ReviewPage = () => {

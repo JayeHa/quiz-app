@@ -1,8 +1,8 @@
-import { ShuffledQuiz } from "../../model/quiz";
-import { EMPTY_SHUFFLED_QUIZ } from "../../tests/fakeQuizzes";
-import { Button } from "../Button";
-import { Heading } from "../Heading";
-import { Text } from "../Text";
+import { ShuffledQuiz } from "../../../model/quiz";
+import { EMPTY_SHUFFLED_QUIZ } from "../../../tests/fakeQuizzes";
+import { Button } from "../../Button";
+import { Heading } from "../../Heading";
+import { Text } from "../../Text";
 
 interface Props {
   quiz: ShuffledQuiz;
