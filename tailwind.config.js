@@ -16,6 +16,8 @@ module.exports = {
       gray: "#262626",
       "gray-dark": "#171717",
       "gray-weak": "#fafafa",
+
+      skeleton: "#d4d4d4",
     },
   },
   plugins: [],
