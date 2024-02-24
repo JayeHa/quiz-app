@@ -77,7 +77,7 @@ describe("QuizCard", () => {
       expect(screen.getByText(/틀렸습니다/)).toBeInTheDocument();
     });
 
-    it("답안을 선택하면 답안 버튼이 비활성화된다", async () => {
+    it("답안을 선택하면 답안 버튼이 비활성화된다", () => {
       renderQuizCard();
       const answerButton = screen.getByRole("button", {
         name: FAKE_QUIZ.correct_answer,
@@ -87,7 +87,7 @@ describe("QuizCard", () => {
       expect(answerButton).toBeDisabled();
     });
 
-    it("'다음 문항' 버튼을 클릭하여 다음 문항으로 이동할 수 있다.", async () => {
+    it("'다음 문항' 버튼을 클릭하여 다음 문항으로 이동할 수 있다.", () => {
       renderQuizCard();
 
       const answerButton = screen.getByRole("button", {
