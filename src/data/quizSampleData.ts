@@ -14,16 +14,6 @@ export const SAMPLE_SHUFFLED_QUIZ_LIST: ShuffledQuiz[] = [
   {
     type: "multiple",
     difficulty: "medium",
-    category: "Entertainment: Japanese Anime &amp; Manga",
-    question:
-      "In &quot;Puella Magi Madoka Magica&quot;, what is the first name of Madoka&#039;s younger brother?",
-    correct_answer: "Tatsuya",
-    incorrect_answers: ["Montoya", "Tomohisa", "Minato"],
-    shuffledAnswers: ["Montoya", "Tomohisa", "Minato", "Tatsuya"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
     category: "Entertainment: Film",
     question:
       "Which actor and martial artist starred as Colonel Guile in the 1994 action film adaptation of Street Fighter?",
@@ -35,6 +25,16 @@ export const SAMPLE_SHUFFLED_QUIZ_LIST: ShuffledQuiz[] = [
       "Steven Seagal",
       "Scott Adkins",
     ],
+  },
+  {
+    type: "multiple",
+    difficulty: "medium",
+    category: "Entertainment: Japanese Anime &amp; Manga",
+    question:
+      "In &quot;Puella Magi Madoka Magica&quot;, what is the first name of Madoka&#039;s younger brother?",
+    correct_answer: "Tatsuya",
+    incorrect_answers: ["Montoya", "Tomohisa", "Minato"],
+    shuffledAnswers: ["Montoya", "Tomohisa", "Minato", "Tatsuya"],
   },
   {
     type: "multiple",
