@@ -1,34 +1,32 @@
-import {
-  ArcElement,
-  Chart as ChartJS,
-  Colors,
-  Legend,
-  Tooltip,
-} from "chart.js";
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend, Colors);
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const CHART_DATA = {
+  LABEL: ["정답", "오답"],
+  BACKGROUND: ["#0f766e", "#b91c1c"],
+};
 
 type Props = {
-  numberOfCorrectAnswers: number;
-  numberOfIncorrectAnswers: number;
+  numberOfCorrect: number;
+  numberOfIncorrect: number;
 };
 
 export const QuizResultChart = ({
-  numberOfCorrectAnswers,
-  numberOfIncorrectAnswers,
-  ...props
+  numberOfCorrect,
+  numberOfIncorrect,
 }: Props) => {
   return (
-    <div className="relative m-auto h-[400px] w-[90vw] max-w-96" {...props}>
+    <div className="relative m-auto h-[400px] w-[90vw] max-w-96">
       <Doughnut
         data={{
-          labels: ["정답", "오답"],
+          labels: CHART_DATA.LABEL,
           datasets: [
             {
               label: "개수",
-              data: [numberOfCorrectAnswers, numberOfIncorrectAnswers],
-              backgroundColor: ["#0f766e", "#b91c1c"],
+              data: [numberOfCorrect, numberOfIncorrect],
+              backgroundColor: CHART_DATA.BACKGROUND,
             },
           ],
         }}

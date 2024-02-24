@@ -63,8 +63,8 @@ export const QuizSummary = ({
       </div>
 
       <QuizResultChart
-        numberOfCorrectAnswers={numberOfCorrectAnswers}
-        numberOfIncorrectAnswers={numberOfIncorrectAnswers}
+        numberOfCorrect={numberOfCorrectAnswers}
+        numberOfIncorrect={numberOfIncorrectAnswers}
       />
     </article>
   );
