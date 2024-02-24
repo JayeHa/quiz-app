@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  @media (max-width: theme(screens.md)) {
+    .bottom-bar {
+      @apply fixed inset-x-0 bottom-0 z-BOTTOM_BAR;
+      @apply h-BOTTOM_BAR_HEIGHT;
+      @apply px-MAIN_PADDING_X pb-7 pt-3;
+      @apply bg-white  shadow-xl;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { EMPTY_SHUFFLED_QUIZ } from "@/data/quizSampleData";
+import { BottomBar } from "@components/BottomBar/BottomBar";
 import { Button } from "@components/Buttons";
 import { EmptyView } from "@components/EmptyView";
 import { Text } from "@components/Text";
@@ -62,7 +63,7 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
       </div>
 
       {userAnswer && (
-        <footer className="bottom-bar animate-slide-up md:animate-none">
+        <BottomBar isSlideUp>
           <div className="flex items-center justify-between">
             <ResultText
               isCorrect={userAnswer === correct_answer}
@@ -84,7 +85,7 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
               {isLastQuiz ? "결과 보기" : "다음 문항"}
             </Button>
           </div>
-        </footer>
+        </BottomBar>
       )}
     </article>
   );

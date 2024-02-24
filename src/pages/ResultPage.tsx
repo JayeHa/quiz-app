@@ -1,3 +1,4 @@
+import { BottomBar } from "@components/BottomBar/BottomBar";
 import { LinkButton } from "@components/Buttons";
 import { EmptyView } from "@components/EmptyView";
 import { Heading } from "@components/Heading";
@@ -22,7 +23,7 @@ export const ResultPage = () => {
         endDate={endDate}
       />
 
-      <footer className="bottom-bar mt-2 md:mt-12">
+      <BottomBar className="mt-2 md:mt-12">
         <div className="flex gap-2">
           <LinkButton to="/" className="w-1/2" color="gray" variant="outlined">
             홈으로
@@ -31,7 +32,7 @@ export const ResultPage = () => {
             오답노트 보러가기
           </LinkButton>
         </div>
-      </footer>
+      </BottomBar>
     </>
   );
 };

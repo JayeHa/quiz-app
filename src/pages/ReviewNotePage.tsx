@@ -1,3 +1,4 @@
+import { BottomBar } from "@components/BottomBar/BottomBar";
 import { LinkButton } from "@components/Buttons";
 import { EmptyView } from "@components/EmptyView";
 import { Heading } from "@components/Heading";
@@ -26,7 +27,7 @@ export const ReviewNotePage = () => {
         ))}
       </div>
 
-      <footer className="bottom-bar mt-16">
+      <BottomBar className="mt-16">
         <div className="flex gap-2">
           <LinkButton
             to="/result"
@@ -40,7 +41,7 @@ export const ReviewNotePage = () => {
             홈으로
           </LinkButton>
         </div>
-      </footer>
+      </BottomBar>
     </>
   );
 };
