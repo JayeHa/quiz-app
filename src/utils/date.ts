@@ -1,23 +1,37 @@
+/**
+ * 날짜 관련 유틸리티 함수
+ *
+ * 이 코드는 Toss의 Slash 프로젝트에서 가지고 온 유틸리티 함수들을 포함합니다.
+ * 원본 코드는 다음 링크에서 확인할 수 있습니다:
+ * @see https://github.com/toss/slash/blob/main/packages/common/date/src/date.ts
+ */
+
 import { format as _format } from "date-fns";
 import { ko } from "date-fns/locale";
 
 const ISO_DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
 
+/**
+ * 주어진 문자열이 유효한 날짜인지 검사합니다.
+ */
 export function isValidDate(dateString: string) {
   const date = new Date(dateString);
   return date instanceof Date && !isNaN(date.getTime());
 }
 
-/**
- * @see https://github.com/toss/slash/blob/main/packages/common/date/src/date.ts
- */
 export type DateFnsDateType = number | Date;
 
+/**
+ * 날짜를 특정 형식의 문자열로 포맷합니다. locale을 한국어로 설정합니다.
+ */
 export const kstFormat = (
   date: DateFnsDateType,
   format: string = ISO_DATE_TIME_FORMAT
 ) => _format(date, format, { locale: ko });
 
+/**
+ * 두 날짜 간의 시간 차이를 계산합니다.
+ */
 export function getDateDistance(startDate: Date, endDate: Date) {
   const SECOND_TO_MS = 1000;
   const MINUTE_TO_MS = 1000 * 60;
@@ -55,6 +69,9 @@ interface Options {
   seconds?: (timeUnits: TimeUnits) => boolean;
 }
 
+/**
+ * 계산된 시간 차이를 텍스트 형식으로 변환합니다.
+ */
 export function getDateDistanceText(
   timeUnits: TimeUnits,
   options: Options = {}
