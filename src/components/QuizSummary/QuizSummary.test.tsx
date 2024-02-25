@@ -8,7 +8,7 @@ const FAKE_PROPS = {
   endDate: "2024-02-22T13:28:59.006Z",
 };
 
-jest.mock("../QuizResultChart/QuizResultChart", () => ({
+jest.mock("./QuizResultChart", () => ({
   QuizResultChart: () => <div>Mocked Chart</div>,
 }));
 
