@@ -58,7 +58,7 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
         })}
       </div>
 
-      <div className="text-right text-neutral-200 md:mb-28">
+      <div className="text-right text-neutral-200 md:mb-7">
         정답: <Text>{correct_answer}</Text>
       </div>
 
