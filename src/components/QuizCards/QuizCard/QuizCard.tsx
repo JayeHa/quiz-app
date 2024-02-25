@@ -8,7 +8,7 @@ import { useQuizStore } from "@store/quizStore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { QuestionBox } from "../QuestionBox";
-import { QuizProgress } from "../QuizProgress";
+import { QuizProgress } from "./QuizProgress";
 import { ResultText } from "./ResultText";
 
 interface Props {
