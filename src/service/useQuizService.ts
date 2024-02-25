@@ -6,10 +6,10 @@ import { useEffect } from "react";
 import { queryOptions } from "./queries";
 
 export const useQuizListQuery = (
-  payload: QuizPayload = { amount: DEFAULT_AMOUNT },
+  payload: QuizPayload = { amount: DEFAULT_AMOUNT }
 ) => {
   const { data: quizList } = useSuspenseQuery<QuizResponse, Error, Quiz[]>(
-    queryOptions.quizList(payload),
+    queryOptions.quizList(payload)
   );
 
   /**

@@ -3,7 +3,7 @@ import { useQuizStore } from "@store/quizStore";
 const determineProgressIndicatorColor = (
   userAnswer: string,
   correctAnswer: string,
-  isCurrent: boolean,
+  isCurrent: boolean
 ) => {
   const CURRENT_PROGRESS = "bg-neutral-500";
   const UNANSWERED = "bg-neutral-200";

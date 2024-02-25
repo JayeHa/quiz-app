@@ -9,7 +9,7 @@ const quizKeys = {
 
 export const queryOptions = {
   quizList: (
-    payload: QuizPayload,
+    payload: QuizPayload
   ): UseSuspenseQueryOptions<QuizResponse, Error, Quiz[]> => {
     return {
       queryKey: quizKeys.lists(payload),

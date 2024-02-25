@@ -3,7 +3,7 @@ import { Suspense, type FC, type ReactNode } from "react";
 
 type WithSuspense = <P extends object>(
   Component: FC<P>,
-  Fallback?: FC<P> | ReactNode,
+  Fallback?: FC<P> | ReactNode
 ) => FC<P>;
 
 /* 

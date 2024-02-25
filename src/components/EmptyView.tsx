@@ -10,10 +10,10 @@ export const EmptyView = ({
   return (
     <div
       className={
-        "p-MAIN_PADDING_X flex items-center justify-center" + className
+        "flex items-center justify-center p-MAIN_PADDING_X" + className
       }
     >
-      <div className="max-w-MAX_MAIN_WIDTH flex w-full flex-col gap-8 text-center">
+      <div className="flex w-full max-w-MAX_MAIN_WIDTH flex-col gap-8 text-center">
         <div>
           <div className="text-[12em]">😦</div>
           <Heading level={2}>{title}</Heading>

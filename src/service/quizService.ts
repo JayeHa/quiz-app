@@ -23,7 +23,7 @@ export const QuizService = {
     try {
       const { data: response } = await axiosInstance.get<QuizResponse>(
         API_URL,
-        { params: { type: "multiple", ...payload } },
+        { params: { type: "multiple", ...payload } }
       );
 
       return response;

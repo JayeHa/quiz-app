@@ -18,7 +18,7 @@ export const QuizSummary = ({
 
   const numberOfCorrectAnswers = calculateCorrectAnswers(
     correctAnswerList,
-    userAnswerList,
+    userAnswerList
   );
   const numberOfIncorrectAnswers =
     correctAnswerList.length - numberOfCorrectAnswers;

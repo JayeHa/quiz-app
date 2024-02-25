@@ -7,7 +7,7 @@ import { QuestionBox } from "../QuestionBox";
 function determineAnswerButtonColor(
   answer: string,
   correctAnswer: string,
-  userAnswer: string,
+  userAnswer: string
 ): ButtonColor {
   const CORRECT = "green";
   const INCORRECT = "red";
@@ -46,7 +46,7 @@ export const QuizReviewCard = ({ quiz, userAnswer, index }: Props) => {
             color={determineAnswerButtonColor(
               answer,
               correct_answer,
-              userAnswer,
+              userAnswer
             )}
             variant={
               answer === correct_answer || answer === userAnswer
