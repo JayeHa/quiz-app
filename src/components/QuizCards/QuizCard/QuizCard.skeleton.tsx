@@ -1,5 +1,5 @@
 import Skeleton from "@components/Skeleton";
-import { SkeletonQuizProgress } from "../QuizProgess.skeleton";
+import { SkeletonQuizProgress } from "./QuizProgess.skeleton";
 
 export const SkeletonQuizCard = () => {
   return (

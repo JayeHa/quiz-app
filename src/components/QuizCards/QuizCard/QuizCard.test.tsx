@@ -11,7 +11,7 @@ const handleNextButtonMock = jest.fn();
 
 const renderQuizCard = (
   quiz: ShuffledQuiz | null = SAMPLE_QUIZ,
-  isLastQuiz = false,
+  isLastQuiz = false
 ) => {
   return render(
     withRouter(
@@ -25,8 +25,8 @@ const renderQuizCard = (
             handleNextButton={handleNextButtonMock}
           />
         }
-      />,
-    ),
+      />
+    )
   );
 };
 
@@ -57,7 +57,7 @@ describe("QuizCard", () => {
       userEvent.click(answerButton);
 
       expect(
-        screen.getByRole("button", { name: /다음 문항/ }),
+        screen.getByRole("button", { name: /다음 문항/ })
       ).toBeInTheDocument();
     });
 
@@ -66,7 +66,7 @@ describe("QuizCard", () => {
       userEvent.click(
         screen.getByRole("button", {
           name: SAMPLE_QUIZ.correct_answer,
-        }),
+        })
       );
 
       expect(screen.getByText(/맞았습니다/)).toBeInTheDocument();
@@ -76,7 +76,7 @@ describe("QuizCard", () => {
       userEvent.click(
         screen.getByRole("button", {
           name: SAMPLE_QUIZ.incorrect_answers[0],
-        }),
+        })
       );
 
       expect(screen.getByText(/틀렸습니다/)).toBeInTheDocument();
@@ -105,7 +105,7 @@ describe("QuizCard", () => {
       userEvent.click(nextButton);
 
       expect(handleNextButtonMock).toHaveBeenCalledWith(
-        SAMPLE_QUIZ.correct_answer,
+        SAMPLE_QUIZ.correct_answer
       );
       expect(answerButton).not.toBeDisabled();
     });
@@ -119,10 +119,10 @@ describe("QuizCard", () => {
       userEvent.click(answerButton);
 
       expect(
-        screen.queryByRole("button", { name: "다음 문항" }),
+        screen.queryByRole("button", { name: "다음 문항" })
       ).not.toBeInTheDocument();
       expect(
-        screen.getByRole("button", { name: "결과 보기" }),
+        screen.getByRole("button", { name: "결과 보기" })
       ).toBeInTheDocument();
     });
 
@@ -145,8 +145,8 @@ describe("QuizCard", () => {
               }
             />
             ,
-          </>,
-        ),
+          </>
+        )
       );
 
       const answerButton = screen.getByRole("button", {

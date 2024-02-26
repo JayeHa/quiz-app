@@ -20,8 +20,8 @@ describe("Home", () => {
         <>
           <Route path="/" element={<HomePage />} />
           <Route path="/quiz" element={<div>{QUIZ_PAGE_TEXT}</div>} />
-        </>,
-      ),
+        </>
+      )
     );
 
     const startButton = screen.getByRole("button", { name: /퀴즈 풀기/ });

@@ -40,6 +40,6 @@ export const useQuizStore = create(
     {
       name: QUIZ_STORAGE_NAME,
       storage: createJSONStorage(() => localStorage),
-    },
-  ),
+    }
+  )
 );

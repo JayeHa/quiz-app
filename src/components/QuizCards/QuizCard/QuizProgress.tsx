@@ -1,9 +1,10 @@
+import { Heading } from "@components/Heading";
 import { useQuizStore } from "@store/quizStore";
 
 const determineProgressIndicatorColor = (
   userAnswer: string,
   correctAnswer: string,
-  isCurrent: boolean,
+  isCurrent: boolean
 ) => {
   const CURRENT_PROGRESS = "bg-neutral-500";
   const UNANSWERED = "bg-neutral-200";
@@ -24,25 +25,31 @@ export const QuizProgress = () => {
   return (
     <div>
       <span className="text-lg font-bold text-neutral-400">
-        <span className="sr-only">진행상황:</span>
-        {current + 1} Of {total}
+        <Heading level={2} size="invisible">
+          총 {total}문제 중 {current + 1}번 째 문제
+        </Heading>
+        <span aria-hidden>
+          {current + 1} Of {total}
+        </span>
       </span>
 
-      <div className="flex gap-2">
+      <ol className="flex gap-2">
         {correctAnswerList.map((correctAnswer, i) => {
           const userAnswer = userAnswerList[i];
+          const isCurrent = i === current;
 
           return (
-            <div
+            <li
               key={correctAnswer}
-              className={`h-1 ${determineProgressIndicatorColor(userAnswer, correctAnswer, i === current)}`}
+              aria-current={isCurrent}
+              className={`h-1 ${determineProgressIndicatorColor(userAnswer, correctAnswer, isCurrent)}`}
               style={{
                 width: `${(1 / total) * 100}%`,
               }}
             />
           );
         })}
-      </div>
+      </ol>
     </div>
   );
 };

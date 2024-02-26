@@ -8,7 +8,7 @@ import { useQuizStore } from "@store/quizStore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { QuestionBox } from "../QuestionBox";
-import { QuizProgress } from "../QuizProgress";
+import { QuizProgress } from "./QuizProgress";
 import { ResultText } from "./ResultText";
 
 interface Props {
@@ -58,7 +58,7 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
         })}
       </div>
 
-      <div className="text-right text-neutral-200 md:mb-28">
+      <div className="text-right text-neutral-200 md:mb-7">
         정답: <Text>{correct_answer}</Text>
       </div>
 
