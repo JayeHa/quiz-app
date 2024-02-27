@@ -1,5 +1,6 @@
 import { Heading } from "@components/Heading";
 import { useQuizStore } from "@store/quizStore";
+import classNames from "classnames";
 
 const determineProgressIndicatorColor = (
   userAnswer: string,
@@ -42,7 +43,14 @@ export const QuizProgress = () => {
             <li
               key={correctAnswer}
               aria-current={isCurrent}
-              className={`h-1 ${determineProgressIndicatorColor(userAnswer, correctAnswer, isCurrent)}`}
+              className={classNames(
+                "h-1",
+                determineProgressIndicatorColor(
+                  userAnswer,
+                  correctAnswer,
+                  isCurrent
+                )
+              )}
               style={{
                 width: `${(1 / total) * 100}%`,
               }}

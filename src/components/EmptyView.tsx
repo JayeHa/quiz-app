@@ -5,7 +5,7 @@ type Props = { title?: string };
 
 export const EmptyView = ({ title = "페이지가 존재하지 않습니다." }: Props) => {
   return (
-    <div className={"flex items-center justify-center p-MAIN_PADDING_X"}>
+    <div className="flex items-center justify-center p-MAIN_PADDING_X">
       <div className="flex w-full max-w-MAX_MAIN_WIDTH flex-col gap-8 text-center">
         <div>
           <div className="text-[12em]">😦</div>

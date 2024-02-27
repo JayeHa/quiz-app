@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import he from "he";
 
 type Props = {
@@ -6,5 +7,5 @@ type Props = {
 };
 
 export const Text = ({ children, className }: Props) => {
-  return <span className={className}>{he.decode(children)}</span>;
+  return <span className={classNames(className)}>{he.decode(children)}</span>;
 };
