@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { ButtonHTMLAttributes } from "react";
 
 export type ButtonVariant = "filled" | "outlined";
@@ -31,7 +32,11 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`rounded-lg border px-6 py-3 text-lg font-semibold shadow transition disabled:cursor-not-allowed disabled:opacity-70 ${BUTTON_STYLES[variant][color]} ${className} `}
+      className={classNames(
+        "rounded-lg border px-6 py-3 text-lg font-semibold shadow transition disabled:cursor-not-allowed disabled:opacity-70",
+        BUTTON_STYLES[variant][color],
+        className
+      )}
       type={type}
       {...props}
     >

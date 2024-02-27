@@ -32,7 +32,7 @@ yarn start
 
 ## 프로젝트 기본 정보
 
-- 개발 기간: `2024.02.11` - `진행중`
+- 개발 기간: `2024.02.21` - `2024.02.27`
 - 배포 링크: [jaye-quiz-app.vercel.app](https://jaye-quiz-app.vercel.app)
 - 깃허브 링크: [github.com/JayeHa/quiz-app](https://github.com/JayeHa/quiz-app)
 
@@ -168,9 +168,16 @@ yarn test
 
 ### 외부 API 에러 처리
 
-- **문제 상황:** 프로젝트에서 사용한 외부 API가 예기치 않게 오류를 발생시켜 애플리케이션의 정상적인 작동에 영향을 미쳤습니다.
+- **문제 상황:** 외부 API 호출 중 예상치 못한 오류로 인해 애플리케이션의 기능이 중단되는 상황이 발생했습니다.
 - **해결 방법:**
   - 기존의 useSuspense 고차 컴포넌트(HOC)을 리액트의 ErrorBoundary와 결합하여 useAsyncBoundary로 확장함으로써, 예외 처리 기능을 강화했습니다. 이를 통해 오류 발생 시 사용자에게 적절한 피드백을 제공할 수 있도록 했습니다.
   - 외부 API의 오류로부터 독립적으로 애플리케이션을 유지하기 위해 샘플 데이터로의 대체 기능을 구현하여 PR을 제출했습니다.
-- **관련 이슈 및 PR:** 이슈 [#2](https://github.com/JayeHa/quiz-app/issues/2), PR [#1](https://github.com/JayeHa/quiz-app/pull/1)
+- **관련 이슈 및 PR:** [이슈 #2](https://github.com/JayeHa/quiz-app/issues/2), [PR #1](https://github.com/JayeHa/quiz-app/pull/1)
 - 원활한 에러 테스트를 위해 메인 브랜치에는 해당 변경 사항을 반영하지 않았습니다. [PR #1](https://github.com/JayeHa/quiz-app/pull/1)에서 변경 사항을 확인하실 수 있으며, [미리보기 배포 링크](https://classting-quiz-app-git-feat-error-boundary-jayeha.vercel.app/)를 통해 변경된 기능을 테스트해보실 수 있습니다.
+
+### `className` prop이 undefined일 때 해당 문자열이 추가되는 문제
+
+- **문제 상황**: 컴포넌트의 className prop이 undefined일 때 "undefined" 문자열이 추가되는 문제가 발생했습니다.
+- **해결 방법**:
+  - `classnames` 라이브러리를 프로젝트 의존성에 추가하여 `className`의 동적 관리를 개선했습니다.
+- **관련 이슈 및 PR:** [PR #3](https://github.com/JayeHa/quiz-app/pull/3)
