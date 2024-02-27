@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { ReactNode } from "react";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -28,7 +29,7 @@ export const Heading = ({
 
   return (
     <Tag
-      className={`break-keep ${HEADING_STYLES[size]} ${className}`}
+      className={classNames("break-keep", HEADING_STYLES[size], className)}
       {...props}
     >
       {children}
