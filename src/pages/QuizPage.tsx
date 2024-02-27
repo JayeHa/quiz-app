@@ -1,22 +1,24 @@
-import { withSuspense } from "@/hocs/withSuspense";
-import { QuizCard } from "@components/QuizCards";
+import { withAsyncBoundary } from "@/hocs/withAsyncBoundary";
+import { Quiz } from "@components/Quiz/Quiz";
 import { SkeletonQuizCard } from "@components/QuizCards/QuizCard/QuizCard.skeleton";
+import { QuizFallbackWithSample } from "@components/QuizFallbackWithSample/QuizFallbackWithSample";
 import { useQuizListQuery } from "@service/useQuizService";
-import { useQuizStore } from "@store/quizStore";
 
-export const QuizPage = withSuspense(() => {
-  useQuizListQuery();
-  const { userAnswerList, setUserAnswer, quizList } = useQuizStore();
-  const currentQuiz = quizList[userAnswerList.length];
-
-  return (
-    <QuizCard
-      quiz={currentQuiz}
-      total={quizList.length}
-      current={userAnswerList.length}
-      handleNextButton={(answer) => {
-        setUserAnswer(answer);
-      }}
-    />
-  );
-}, SkeletonQuizCard);
+export const QuizPage = withAsyncBoundary(
+  () => {
+    useQuizListQuery();
+    return <Quiz />;
+  },
+  {
+    pendingFallback: <SkeletonQuizCard />,
+    rejectedFallback: {
+      fallbackRender: ({ error, resetErrorBoundary }) => (
+        <QuizFallbackWithSample
+          error={error}
+          resetErrorBoundary={resetErrorBoundary}
+          Component={<Quiz />}
+        />
+      ),
+    },
+  },
+);
