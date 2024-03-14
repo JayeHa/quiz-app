@@ -1,5 +1,5 @@
-import { Button, ButtonProps } from "@components/Buttons";
 import { useNavigate } from "react-router-dom";
+import { Button, ButtonProps } from "./Button";
 
 type Props = ButtonProps & {
   to: string;

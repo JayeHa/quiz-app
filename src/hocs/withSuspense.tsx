@@ -1,4 +1,4 @@
-import Skeleton from "@components/Skeleton";
+import Skeleton from "@components/common/Skeleton";
 import { Suspense, type FC, type ReactNode } from "react";
 
 type WithSuspense = <P extends object>(

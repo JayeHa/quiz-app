@@ -1,4 +1,4 @@
-import { EmptyView } from "@components/EmptyView";
+import { EmptyView } from "@components/common/EmptyView";
 
 export const NotFoundPage = () => {
   return (

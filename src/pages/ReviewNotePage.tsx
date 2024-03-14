@@ -1,7 +1,7 @@
-import { BottomBar } from "@components/BottomBar/BottomBar";
-import { LinkButton } from "@components/Buttons";
-import { EmptyView } from "@components/EmptyView";
-import { Heading } from "@components/Heading";
+import { BottomBar } from "@components/common/BottomBar/BottomBar";
+import { LinkButton } from "@components/common/Buttons";
+import { EmptyView } from "@components/common/EmptyView";
+import { Heading } from "@components/common/Heading";
 import { QuizReviewCard } from "@components/QuizCards";
 import { useQuizStore } from "@store/quizStore";
 

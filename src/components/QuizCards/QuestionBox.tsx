@@ -1,5 +1,5 @@
-import { Heading } from "@components/Heading";
-import { Text } from "@components/Text";
+import { Heading } from "@components/common/Heading";
+import { Text } from "@components/common/Text";
 import { Quiz } from "@models/quiz";
 
 type Props = {

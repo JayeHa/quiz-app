@@ -1,8 +1,9 @@
 import { EMPTY_SHUFFLED_QUIZ } from "@/data/quizSampleData";
-import { BottomBar } from "@components/BottomBar/BottomBar";
-import { Button } from "@components/Buttons";
-import { EmptyView } from "@components/EmptyView";
-import { Text } from "@components/Text";
+
+import { BottomBar } from "@components/common/BottomBar/BottomBar";
+import { Button } from "@components/common/Buttons";
+import { EmptyView } from "@components/common/EmptyView";
+import { Text } from "@components/common/Text";
 import { ShuffledQuiz } from "@models/quiz";
 import { useQuizStore } from "@store/quizStore";
 import { useState } from "react";

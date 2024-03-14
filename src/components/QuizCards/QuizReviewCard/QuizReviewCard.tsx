@@ -1,6 +1,7 @@
 import { EMPTY_SHUFFLED_QUIZ } from "@/data/quizSampleData";
-import { Button, ButtonColor } from "@components/Buttons";
-import { Text } from "@components/Text";
+
+import { Button, ButtonColor } from "@components/common/Buttons";
+import { Text } from "@components/common/Text";
 import { ShuffledQuiz } from "@models/quiz";
 import { QuestionBox } from "../QuestionBox";
 

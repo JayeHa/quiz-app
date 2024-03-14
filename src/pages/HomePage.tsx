@@ -1,5 +1,5 @@
-import { LinkButton } from "@components/Buttons";
-import { Heading } from "@components/Heading";
+import { LinkButton } from "@components/common/Buttons";
+import { Heading } from "@components/common/Heading";
 import { DEFAULT_AMOUNT } from "@models/quiz";
 
 export const HomePage = () => {

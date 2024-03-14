@@ -1,4 +1,4 @@
-import { Heading } from "@components/Heading";
+import { Heading } from "@components/common/Heading";
 import { useQuizStore } from "@store/quizStore";
 import classNames from "classnames";
 
