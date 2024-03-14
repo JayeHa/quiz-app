@@ -86,7 +86,7 @@ export const QuizCard = ({
             {isLastQuiz && (
               <LinkButton
                 className="w-1/2 max-w-[300px]"
-                to="result"
+                to="/result"
                 onClick={() => {
                   handleResultButton(userAnswer);
                   setUserAnswer(null);
