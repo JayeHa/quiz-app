@@ -1,13 +1,9 @@
-import { EMPTY_SHUFFLED_QUIZ } from "@/data/quizSampleData";
-
 import { BottomBar } from "@components/common/BottomBar/BottomBar";
-import { Button } from "@components/common/Buttons";
+import { Button, LinkButton } from "@components/common/Buttons";
 import { EmptyView } from "@components/common/EmptyView";
 import { Text } from "@components/common/Text";
 import { ShuffledQuiz } from "@models/quiz";
-import { useQuizStore } from "@store/quizStore";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { QuestionBox } from "../QuestionBox";
 import { QuizProgress } from "./QuizProgress";
 import { ResultText } from "./ResultText";
@@ -15,22 +11,25 @@ import { ResultText } from "./ResultText";
 interface Props {
   quiz: ShuffledQuiz | null;
   handleNextButton: (userAnswer: string) => void;
+  handleResultButton: (userAnswer: string) => void;
   total: number;
   current: number;
 }
 
-export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
-  const navigate = useNavigate();
-
-  const { setEndDate } = useQuizStore();
+export const QuizCard = ({
+  quiz,
+  total,
+  current,
+  handleNextButton,
+  handleResultButton,
+}: Props) => {
   const [userAnswer, setUserAnswer] = useState<string | null>(null);
-
-  const { question, correct_answer, shuffledAnswers, category, difficulty } =
-    quiz ?? EMPTY_SHUFFLED_QUIZ;
-
   const isLastQuiz = current >= total - 1;
 
   if (!quiz) return <EmptyView title="퀴즈가 존재하지 않습니다." />;
+
+  const { question, correct_answer, shuffledAnswers, category, difficulty } =
+    quiz;
 
   return (
     <article className="flex flex-col gap-8">
@@ -72,19 +71,29 @@ export const QuizCard = ({ quiz, handleNextButton, total, current }: Props) => {
               incorrectText="틀렸습니다 ❌"
             />
 
-            <Button
-              className="w-1/2 max-w-[300px]"
-              onClick={() => {
-                handleNextButton(userAnswer);
-                setUserAnswer(null);
-                if (isLastQuiz) {
-                  navigate("/result");
-                  setEndDate();
-                }
-              }}
-            >
-              {isLastQuiz ? "결과 보기" : "다음 문항"}
-            </Button>
+            {!isLastQuiz && (
+              <Button
+                className="w-1/2 max-w-[300px]"
+                onClick={() => {
+                  handleNextButton(userAnswer);
+                  setUserAnswer(null);
+                }}
+              >
+                다음 문항
+              </Button>
+            )}
+
+            {isLastQuiz && (
+              <LinkButton
+                to="result"
+                onClick={() => {
+                  handleResultButton(userAnswer);
+                  setUserAnswer(null);
+                }}
+              >
+                결과 보기
+              </LinkButton>
+            )}
           </div>
         </BottomBar>
       )}

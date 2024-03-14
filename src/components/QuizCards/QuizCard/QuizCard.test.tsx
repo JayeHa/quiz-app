@@ -8,6 +8,7 @@ import { QuizCard } from "./QuizCard";
 
 const SAMPLE_QUIZ = SAMPLE_SHUFFLED_QUIZ_LIST[0];
 const handleNextButtonMock = jest.fn();
+const handleResultButtonMock = jest.fn();
 
 const renderQuizCard = (
   quiz: ShuffledQuiz | null = SAMPLE_QUIZ,
@@ -23,6 +24,7 @@ const renderQuizCard = (
             total={3}
             current={isLastQuiz ? 2 : 0}
             handleNextButton={handleNextButtonMock}
+            handleResultButton={handleResultButtonMock}
           />
         }
       />
@@ -141,6 +143,7 @@ describe("QuizCard", () => {
                   total={total}
                   current={total - 1}
                   handleNextButton={handleNextButtonMock}
+                  handleResultButton={handleResultButtonMock}
                 />
               }
             />
