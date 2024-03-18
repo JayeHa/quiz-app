@@ -10,8 +10,8 @@ export interface QuizState {
   userAnswerList: string[];
   startDate: string | null;
   endDate: string | null;
-  setQuizList: (quizList: ShuffledQuiz[], startDate?: Date) => void;
-  setUserAnswer: (answer: string) => void;
+  initQuizList: (quizList: ShuffledQuiz[], startDate?: Date) => void;
+  addUserAnswer: (answer: string) => void;
   setEndDate: (endDate?: Date) => void;
 }
 
@@ -22,14 +22,14 @@ export const useQuizStore = create(
       userAnswerList: [],
       startDate: null,
       endDate: null,
-      setQuizList: (quizList, startDate = new Date()) =>
+      initQuizList: (quizList, startDate = new Date()) =>
         set({
           quizList,
           startDate: kstFormat(startDate),
           endDate: null,
           userAnswerList: [],
         }),
-      setUserAnswer: (answer) => {
+      addUserAnswer: (answer) => {
         set((state) => ({
           userAnswerList: [...state.userAnswerList, answer],
         }));

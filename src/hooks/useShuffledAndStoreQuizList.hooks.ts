@@ -9,7 +9,7 @@ import { useEffect } from "react";
  * @param {Quiz[]} quizList - 쿼리를 통해 가져온 퀴즈 목록
  */
 export const useShuffleAndStoreQuizList = (quizList: Quiz[]) => {
-  const { setQuizList } = useQuizStore();
+  const { initQuizList } = useQuizStore();
   useEffect(() => {
     if (!quizList) return;
 
@@ -21,6 +21,6 @@ export const useShuffleAndStoreQuizList = (quizList: Quiz[]) => {
       ]),
     }));
 
-    setQuizList(shuffledQuizzes);
-  }, [quizList, setQuizList]);
+    initQuizList(shuffledQuizzes);
+  }, [quizList, initQuizList]);
 };

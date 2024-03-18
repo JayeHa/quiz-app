@@ -7,7 +7,7 @@ import { useQuizStore } from "@store/quizStore";
 export const QuizPage = withSuspense(() => {
   useQuizListQuery();
 
-  const { quizList, userAnswerList, setUserAnswer, setEndDate } =
+  const { quizList, userAnswerList, addUserAnswer, setEndDate } =
     useQuizStore();
   const currentQuiz = quizList[userAnswerList.length];
 
@@ -17,10 +17,10 @@ export const QuizPage = withSuspense(() => {
       total={quizList.length}
       current={userAnswerList.length}
       handleNextButton={(answer) => {
-        setUserAnswer(answer);
+        addUserAnswer(answer);
       }}
       handleResultButton={(answer) => {
-        setUserAnswer(answer);
+        addUserAnswer(answer);
         setEndDate();
       }}
     />
